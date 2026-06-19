@@ -2,6 +2,7 @@ import { CertificationList } from "@/components/feature/CertificationList";
 import { ContactPanel } from "@/components/feature/ContactPanel";
 import { EducationTimeline } from "@/components/feature/EducationTimeline";
 import { ExperienceList } from "@/components/feature/ExperienceList";
+import { HeroBackgroundMount } from "@/components/feature/HeroBackgroundMount";
 import { HeroIntro } from "@/components/feature/HeroIntro";
 import { SkillMatrix, TopSkillsRow } from "@/components/feature/SkillMatrix";
 import { StrengthsList } from "@/components/feature/StrengthsList";
@@ -15,8 +16,13 @@ import { profile } from "@/data/profile";
 export default function HomePage() {
   return (
     <>
-      <Section id="top" spacing="loose">
-        <Container size="wide">
+      <Section
+        id="top"
+        spacing="loose"
+        className="relative isolate overflow-hidden pt-32 sm:pt-40"
+      >
+        <HeroBackgroundMount />
+        <Container size="wide" className="relative z-10">
           <HeroIntro />
         </Container>
       </Section>

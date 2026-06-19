@@ -1,40 +1,40 @@
-/* theme.css — dark-first palette with cool zinc neutrals and indigo accent.
+/* theme.css — dark-first BLUE palette: slate neutrals + true-blue accent.
    Dark is the default; light is opt-in via prefers-color-scheme. */
 
 :root {
-  --background: #09090b;
-  --foreground: #fafafa;
-  --muted: #131316;
-  --muted-foreground: #a1a1aa;
-  --surface: #111114;
-  --surface-hover: #18181b;
-  --border: #27272a;
-  --border-strong: #3f3f46;
+  --background: #020617;
+  --foreground: #f1f5f9;
+  --muted: #0b1426;
+  --muted-foreground: #94a3b8;
+  --surface: #0f172a;
+  --surface-hover: #1e293b;
+  --border: #1e293b;
+  --border-strong: #334155;
 
-  --accent: #818cf8;
-  --accent-foreground: #09090b;
-  --accent-soft: rgba(129, 140, 248, 0.12);
+  --accent: #60a5fa;
+  --accent-foreground: #020617;
+  --accent-soft: rgba(96, 165, 250, 0.12);
 
-  --ring: #818cf8;
+  --ring: #60a5fa;
   --success: #34d399;
 }
 
 @media (prefers-color-scheme: light) {
   :root {
-    --background: #fafafa;
-    --foreground: #09090b;
-    --muted: #f4f4f5;
-    --muted-foreground: #52525b;
+    --background: #f8fafc;
+    --foreground: #0f172a;
+    --muted: #f1f5f9;
+    --muted-foreground: #475569;
     --surface: #ffffff;
-    --surface-hover: #f4f4f5;
-    --border: #e4e4e7;
-    --border-strong: #d4d4d8;
+    --surface-hover: #f1f5f9;
+    --border: #e2e8f0;
+    --border-strong: #cbd5e1;
 
-    --accent: #4f46e5;
-    --accent-foreground: #fafafa;
-    --accent-soft: rgba(79, 70, 229, 0.10);
+    --accent: #2563eb;
+    --accent-foreground: #f8fafc;
+    --accent-soft: rgba(37, 99, 235, 0.10);
 
-    --ring: #4f46e5;
+    --ring: #2563eb;
     --success: #059669;
   }
 }
