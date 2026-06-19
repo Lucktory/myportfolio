@@ -19,7 +19,7 @@ export default function HomePage() {
       <Section
         id="top"
         spacing="loose"
-        className="relative isolate overflow-hidden pt-32 sm:pt-40"
+        className="relative isolate overflow-hidden bg-background pt-32 sm:pt-40"
       >
         <HeroBackgroundMount />
         <Container size="wide" className="relative z-10">
