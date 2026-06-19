@@ -1,40 +1,22 @@
-/* theme.css — dark-first BLUE palette: slate neutrals + true-blue accent.
-   Dark is the default; light is opt-in via prefers-color-scheme. */
+/* theme.css — Single dark-blue palette. No light-mode override; this is the
+   site's identity. Reads clearly as midnight blue, not slate near-black. */
 
 :root {
-  --background: #020617;
-  --foreground: #f1f5f9;
-  --muted: #0b1426;
+  color-scheme: dark;
+
+  --background: #060c1d;
+  --foreground: #e2e8f0;
+  --muted: #0c1631;
   --muted-foreground: #94a3b8;
-  --surface: #0f172a;
-  --surface-hover: #1e293b;
-  --border: #1e293b;
-  --border-strong: #334155;
+  --surface: #0c1631;
+  --surface-hover: #16224a;
+  --border: #1e2a4a;
+  --border-strong: #2a3a66;
 
   --accent: #60a5fa;
-  --accent-foreground: #020617;
-  --accent-soft: rgba(96, 165, 250, 0.12);
+  --accent-foreground: #060c1d;
+  --accent-soft: rgba(96, 165, 250, 0.14);
 
   --ring: #60a5fa;
   --success: #34d399;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    --background: #f8fafc;
-    --foreground: #0f172a;
-    --muted: #f1f5f9;
-    --muted-foreground: #475569;
-    --surface: #ffffff;
-    --surface-hover: #f1f5f9;
-    --border: #e2e8f0;
-    --border-strong: #cbd5e1;
-
-    --accent: #2563eb;
-    --accent-foreground: #f8fafc;
-    --accent-soft: rgba(37, 99, 235, 0.10);
-
-    --ring: #2563eb;
-    --success: #059669;
-  }
 }

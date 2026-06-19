@@ -113,6 +113,18 @@ export function HeroBackground() {
       aria-hidden
       className="pointer-events-none absolute inset-0 overflow-hidden"
     >
+      {/* Layer 1: deep blue atmosphere — a soft radial glow at top-center,
+          painted under the canvas to define the hero zone. */}
+      <div
+        aria-hidden
+        className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,rgba(96,165,250,0.18),transparent_70%)]"
+      />
+      <div
+        aria-hidden
+        className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_100%,rgba(37,99,235,0.10),transparent_70%)]"
+      />
+
+      {/* Layer 2: the three.js constellation. */}
       <Canvas
         camera={{ position: [0, 0, 5], fov: 60 }}
         dpr={[1, 1.5]}
@@ -132,13 +144,15 @@ export function HeroBackground() {
           />
         </Suspense>
       </Canvas>
+
+      {/* Layer 3: vignette fade so the canvas blends into the section edges. */}
       <div
         aria-hidden
-        className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-background"
+        className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,transparent_55%,var(--background)_100%)]"
       />
       <div
         aria-hidden
-        className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,transparent_50%,var(--background)_100%)]"
+        className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-background"
       />
     </div>
   );
