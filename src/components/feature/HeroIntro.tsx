@@ -23,7 +23,9 @@ export function HeroIntro() {
         </div>
 
         <h1 className="text-balance text-4xl font-semibold tracking-tight text-foreground sm:text-5xl md:text-6xl">
-          {profile.name}.{" "}
+          <span className="bg-gradient-to-br from-foreground to-foreground/60 bg-clip-text text-transparent">
+            {profile.name}.
+          </span>{" "}
           <span className="text-muted-foreground">
             Building reliable systems on the frontend and the cloud.
           </span>
@@ -54,11 +56,11 @@ export function HeroIntro() {
         </dl>
 
         <div className="flex flex-wrap items-center gap-3 pt-2">
-          <Button href="/contact">
+          <Button href="#contact">
             Get in touch
             <ArrowUpRight className="size-4" aria-hidden />
           </Button>
-          <Button href="/about" variant="secondary">
+          <Button href="#about" variant="secondary">
             More about me
           </Button>
         </div>

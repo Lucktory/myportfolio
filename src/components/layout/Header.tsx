@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 import { primaryNav } from "@/config/navigation";
@@ -11,18 +10,42 @@ import { getIcon } from "@/lib/icons";
 
 import { Container } from "./Container";
 
+function getSectionId(href: string): string | null {
+  return href.startsWith("#") ? href.slice(1) : null;
+}
+
 export function Header() {
-  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
+  const [activeId, setActiveId] = useState<string | null>(null);
   const MenuIcon = getIcon("menu");
   const CloseIcon = getIcon("close");
 
   useEffect(() => {
-    setIsOpen(false);
-  }, [pathname]);
+    const ids = primaryNav
+      .map((item) => getSectionId(item.href))
+      .filter((id): id is string => Boolean(id));
+    const elements = ids
+      .map((id) => document.getElementById(id))
+      .filter((el): el is HTMLElement => Boolean(el));
+
+    if (elements.length === 0) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+        if (visible[0]) setActiveId(visible[0].target.id);
+      },
+      { rootMargin: "-40% 0px -55% 0px", threshold: [0, 0.25, 0.5, 0.75, 1] },
+    );
+
+    for (const el of elements) observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border/80 bg-background/80 backdrop-blur-md">
+    <header className="sticky top-0 z-40 border-b border-border/80 bg-background/75 backdrop-blur-md">
       <Container size="wide">
         <div className="flex h-16 items-center justify-between gap-6">
           <Link
@@ -38,9 +61,8 @@ export function Header() {
           <nav aria-label="Primary" className="hidden md:block">
             <ul className="flex items-center gap-1">
               {primaryNav.map((item) => {
-                const active =
-                  pathname === item.href ||
-                  (item.href !== "/" && pathname.startsWith(item.href));
+                const id = getSectionId(item.href);
+                const active = id !== null && id === activeId;
                 return (
                   <li key={item.href}>
                     <Link
@@ -51,7 +73,7 @@ export function Header() {
                           ? "bg-muted text-foreground"
                           : "text-muted-foreground hover:bg-surface-hover hover:text-foreground",
                       )}
-                      aria-current={active ? "page" : undefined}
+                      aria-current={active ? "true" : undefined}
                     >
                       {item.label}
                     </Link>
@@ -85,20 +107,20 @@ export function Header() {
           >
             <ul className="flex flex-col">
               {primaryNav.map((item) => {
-                const active =
-                  pathname === item.href ||
-                  (item.href !== "/" && pathname.startsWith(item.href));
+                const id = getSectionId(item.href);
+                const active = id !== null && id === activeId;
                 return (
                   <li key={item.href}>
                     <Link
                       href={item.href}
+                      onClick={() => setIsOpen(false)}
                       className={cn(
                         "block rounded-md px-3 py-2 text-sm",
                         active
                           ? "bg-muted text-foreground"
                           : "text-muted-foreground hover:bg-surface-hover hover:text-foreground",
                       )}
-                      aria-current={active ? "page" : undefined}
+                      aria-current={active ? "true" : undefined}
                     >
                       {item.label}
                     </Link>
