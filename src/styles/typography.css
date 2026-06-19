@@ -1,0 +1,19 @@
+/* typography.css — font wiring, type rendering, selection. */
+
+html {
+  font-family: var(--font-sans);
+  font-feature-settings: "cv11", "ss01";
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+  letter-spacing: -0.005em;
+}
+
+::selection {
+  background: var(--foreground);
+  color: var(--background);
+}
