@@ -16,8 +16,8 @@
   --color-success: var(--success);
 
   --font-sans: var(--font-lexend), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-display), ui-serif, Georgia, serif;
-  --font-mono: var(--font-mono), ui-monospace, "JetBrains Mono", monospace;
+  --font-display: var(--font-instrument-serif), ui-serif, Georgia, "Times New Roman", serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, "SF Mono", Menlo, Consolas, monospace;
 
   /* Sharp / editorial radius scale — small values only. */
   --radius-xs: 0px;

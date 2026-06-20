@@ -12,7 +12,7 @@ export function HeroIntro() {
     <div className="grid gap-14 md:grid-cols-[1.5fr_1fr] md:items-end">
       <div className="flex flex-col gap-7">
         <div className="flex flex-wrap items-center gap-2">
-          <span className="inline-flex items-center gap-2 border border-border-strong bg-background/40 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+          <span className="inline-flex items-center gap-2 border border-border-strong bg-background/40 px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.22em] text-foreground/80">
             <span
               aria-hidden
               className="inline-block size-1.5 bg-[var(--color-success)]"
@@ -33,7 +33,7 @@ export function HeroIntro() {
           {profile.summary[0]}
         </p>
 
-        <dl className="flex flex-wrap items-center gap-x-6 gap-y-3 font-mono text-[12px] uppercase tracking-[0.14em] text-muted-foreground">
+        <dl className="flex flex-wrap items-center gap-x-6 gap-y-3 font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground">
           <div className="inline-flex items-center gap-2">
             <Briefcase className="size-3.5" aria-hidden />
             <dt className="sr-only">Currently at</dt>
@@ -79,14 +79,16 @@ export function HeroIntro() {
               key={stat.label}
               className="flex flex-col gap-1 bg-background/70 p-5"
             >
-              <dt className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
+              <dt className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
                 {stat.label}
               </dt>
               <dd className="font-display text-3xl font-normal leading-none tracking-tight text-foreground">
                 {stat.value}
               </dd>
               {stat.hint ? (
-                <p className="text-xs text-muted-foreground">{stat.hint}</p>
+                <p className="text-xs leading-snug text-muted-foreground">
+                  {stat.hint}
+                </p>
               ) : null}
             </div>
           ))}

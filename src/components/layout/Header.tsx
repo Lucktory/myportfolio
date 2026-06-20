@@ -56,7 +56,7 @@ export function Header() {
               ◐
             </span>
             <span>{profile.name}</span>
-            <span className="ml-1 hidden font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground sm:inline">
+            <span className="ml-1 hidden font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground sm:inline">
               / {profile.role}
             </span>
           </Link>
@@ -71,7 +71,7 @@ export function Header() {
                     <Link
                       href={item.href}
                       className={cn(
-                        "px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.16em] transition-colors",
+                        "px-3 py-1.5 font-mono text-xs uppercase tracking-[0.16em] transition-colors",
                         active
                           ? "text-foreground"
                           : "text-muted-foreground hover:text-foreground",

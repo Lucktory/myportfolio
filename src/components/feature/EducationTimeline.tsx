@@ -22,7 +22,7 @@ export function EducationTimeline() {
             </span>
             <div className="flex flex-1 flex-col gap-2">
               <div className="flex flex-wrap items-center gap-2">
-                <CardTitle className="font-display text-2xl font-normal">
+                <CardTitle className="text-xl font-semibold tracking-tight">
                   {item.degree}
                 </CardTitle>
                 {item.status === "in-progress" ? (
@@ -31,7 +31,7 @@ export function EducationTimeline() {
                   <Badge variant="outline">Completed</Badge>
                 )}
               </div>
-              <p className="font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground">
+              <p className="font-mono text-xs uppercase tracking-[0.16em] text-muted-foreground">
                 <span className="text-foreground">{item.institution}</span>
                 {item.location ? ` · ${item.location}` : ""}
               </p>

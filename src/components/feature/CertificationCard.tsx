@@ -33,34 +33,38 @@ export function CertificationCard({ certification }: CertificationCardProps) {
           <ShieldIcon className="size-4" />
         </span>
         <div className="flex flex-1 flex-col gap-1">
-          <CardTitle className="font-display text-base font-normal leading-snug">
+          <CardTitle className="text-[15px] font-semibold leading-snug">
             {certification.title}
           </CardTitle>
-          <CardDescription className="font-mono text-[11px] uppercase tracking-[0.14em] text-muted-foreground">
+          <CardDescription className="font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground">
             {certification.issuer}
           </CardDescription>
         </div>
       </header>
 
-      <dl className="grid gap-2 font-mono text-[11px] text-muted-foreground sm:grid-cols-2">
+      <dl className="grid gap-3 sm:grid-cols-2">
         {issued ? (
           <div>
-            <dt className="uppercase tracking-[0.14em]">Issued</dt>
-            <dd className="mt-0.5 text-sm text-foreground/85">{issued}</dd>
+            <dt className="font-mono text-[11px] uppercase tracking-[0.14em] text-muted-foreground">
+              Issued
+            </dt>
+            <dd className="mt-1 text-sm font-medium text-foreground/90">{issued}</dd>
           </div>
         ) : null}
         {expires ? (
           <div>
-            <dt className="uppercase tracking-[0.14em]">
+            <dt className="font-mono text-[11px] uppercase tracking-[0.14em] text-muted-foreground">
               {expired ? "Expired" : "Valid until"}
             </dt>
-            <dd className="mt-0.5 text-sm text-foreground/85">{expires}</dd>
+            <dd className="mt-1 text-sm font-medium text-foreground/90">{expires}</dd>
           </div>
         ) : null}
         {certification.credentialId ? (
           <div className="sm:col-span-2">
-            <dt className="uppercase tracking-[0.14em]">Credential ID</dt>
-            <dd className="mt-0.5 break-all text-[11px] text-foreground/70">
+            <dt className="font-mono text-[11px] uppercase tracking-[0.14em] text-muted-foreground">
+              Credential ID
+            </dt>
+            <dd className="mt-1 break-all font-mono text-xs text-foreground/80">
               {certification.credentialId}
             </dd>
           </div>
@@ -72,7 +76,7 @@ export function CertificationCard({ certification }: CertificationCardProps) {
           {certification.skills.map((skill) => (
             <li
               key={skill}
-              className="border border-border bg-background/60 px-2 py-0.5 font-mono text-[10px] text-foreground/75"
+              className="border border-border bg-background/60 px-2.5 py-1 font-mono text-[11px] text-foreground/85"
             >
               {skill}
             </li>
@@ -84,7 +88,7 @@ export function CertificationCard({ certification }: CertificationCardProps) {
         <div className="mt-auto pt-2">
           <Link
             href={certification.credentialUrl}
-            className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.14em] text-foreground hover:underline"
+            className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-[0.14em] text-foreground hover:underline"
             {...externalLinkProps(certification.credentialUrl)}
           >
             Show credential

@@ -55,16 +55,16 @@ export default function HomePage() {
                 <p key={paragraph}>{paragraph}</p>
               ))}
               <ul className="mt-2 flex flex-wrap gap-2">
-                <li className="border border-border-strong bg-background/40 px-2.5 py-1 font-mono text-[11px] uppercase tracking-[0.14em] text-foreground/80">
+                <li className="border border-border-strong bg-background/40 px-2.5 py-1 font-mono text-xs uppercase tracking-[0.14em] text-foreground/80">
                   {profile.role}
                 </li>
-                <li className="border border-border bg-background/40 px-2.5 py-1 font-mono text-[11px] uppercase tracking-[0.14em] text-muted-foreground">
+                <li className="border border-border bg-background/40 px-2.5 py-1 font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground">
                   {profile.currentEmployer.name}
                 </li>
-                <li className="border border-border bg-background/40 px-2.5 py-1 font-mono text-[11px] uppercase tracking-[0.14em] text-muted-foreground">
+                <li className="border border-border bg-background/40 px-2.5 py-1 font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground">
                   {profile.location}
                 </li>
-                <li className="border border-border bg-background/40 px-2.5 py-1 font-mono text-[11px] uppercase tracking-[0.14em] text-muted-foreground">
+                <li className="border border-border bg-background/40 px-2.5 py-1 font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground">
                   {profile.yearsOfExperience} years
                 </li>
               </ul>

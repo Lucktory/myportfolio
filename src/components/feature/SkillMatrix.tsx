@@ -12,7 +12,7 @@ export function TopSkillsRow() {
         {topSkills.map((skill) => (
           <li
             key={skill}
-            className="border border-border bg-surface/40 px-3 py-1.5 font-mono text-xs text-foreground/85"
+            className="border border-border bg-surface/40 px-3 py-1.5 font-mono text-sm text-foreground/90"
           >
             {skill}
           </li>
@@ -38,7 +38,7 @@ export function SkillMatrix() {
                   <Icon className="size-5" />
                 </span>
                 <div className="flex flex-col gap-1">
-                  <CardTitle className="font-display text-xl font-normal">
+                  <CardTitle className="text-lg font-semibold">
                     {group.title}
                   </CardTitle>
                   <CardDescription>{group.description}</CardDescription>
@@ -48,7 +48,7 @@ export function SkillMatrix() {
                 {group.skills.map((skill) => (
                   <li
                     key={skill}
-                    className="border border-border bg-surface/40 px-2.5 py-1 font-mono text-[11px] text-foreground/80"
+                    className="border border-border bg-surface/40 px-2.5 py-1 font-mono text-xs text-foreground/85"
                   >
                     {skill}
                   </li>

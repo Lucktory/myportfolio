@@ -22,16 +22,16 @@ export function ExperienceList() {
                   <Icon className="size-5" />
                 </span>
                 <div className="flex flex-col gap-1.5">
-                  <CardTitle className="font-display text-2xl font-normal leading-tight">
+                  <CardTitle className="text-xl font-semibold leading-tight tracking-tight">
                     {item.role}
                   </CardTitle>
-                  <p className="font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground">
+                  <p className="font-mono text-xs uppercase tracking-[0.16em] text-muted-foreground">
                     <span className="text-foreground">{item.company}</span>
                     {item.location ? ` · ${item.location}` : ""}
                   </p>
                 </div>
               </div>
-              <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
+              <span className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">
                 {item.startDate === "Current"
                   ? item.endDate
                   : `${item.startDate} — ${item.endDate}`}
@@ -55,7 +55,7 @@ export function ExperienceList() {
                 {item.stack.map((tech) => (
                   <li
                     key={tech}
-                    className="border border-border bg-background/60 px-2.5 py-1 font-mono text-[11px] text-foreground/80"
+                    className="border border-border bg-background/60 px-2.5 py-1 font-mono text-xs text-foreground/85"
                   >
                     {tech}
                   </li>

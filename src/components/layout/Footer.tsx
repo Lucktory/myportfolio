@@ -17,7 +17,7 @@ export function Footer() {
             <p className="font-display text-2xl font-normal tracking-tight text-foreground">
               {profile.name}
             </p>
-            <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
+            <p className="mt-1 font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground">
               {profile.role} / {profile.location}
             </p>
             <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
@@ -26,7 +26,7 @@ export function Footer() {
           </div>
 
           <nav aria-label="Footer">
-            <ul className="grid grid-cols-2 gap-x-10 gap-y-2 font-mono text-[11px] uppercase tracking-[0.18em]">
+            <ul className="grid grid-cols-2 gap-x-10 gap-y-2 font-mono text-xs uppercase tracking-[0.18em]">
               {footerNav.map((item) => (
                 <li key={item.href}>
                   <Link
@@ -42,7 +42,7 @@ export function Footer() {
         </div>
 
         <div className="mt-12 flex flex-col gap-6 border-t border-border pt-6 sm:flex-row sm:items-center sm:justify-between">
-          <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-muted-foreground">
+          <p className="font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground">
             © {getCurrentYear()} {profile.name} · Built with Next.js + Tailwind
           </p>
           <SocialLinks items={profile.socials} />

@@ -20,7 +20,7 @@ export function StrengthsList() {
                 <Icon className="size-5" />
               </span>
               <div className="flex flex-col gap-1.5">
-                <CardTitle className="font-display text-lg font-normal">
+                <CardTitle className="text-base font-semibold">
                   {strength.title}
                 </CardTitle>
                 <CardDescription>{strength.description}</CardDescription>

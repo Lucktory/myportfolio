@@ -15,7 +15,7 @@ const lexend = Lexend({
 });
 
 const instrumentSerif = Instrument_Serif({
-  variable: "--font-display",
+  variable: "--font-instrument-serif",
   subsets: ["latin"],
   display: "swap",
   weight: ["400"],
@@ -23,7 +23,7 @@ const instrumentSerif = Instrument_Serif({
 });
 
 const jetbrainsMono = JetBrains_Mono({
-  variable: "--font-mono",
+  variable: "--font-jetbrains-mono",
   subsets: ["latin"],
   display: "swap",
   weight: ["400", "500"],

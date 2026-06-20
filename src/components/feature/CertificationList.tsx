@@ -37,13 +37,13 @@ export function CertificationList() {
     <div className="flex flex-col gap-16">
       {groups.map(({ category, meta, items }) => (
         <section key={category} aria-labelledby={`cert-${category}`}>
-          <header className="mb-6 flex flex-col gap-1.5">
-            <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
+          <header className="mb-6 flex flex-col gap-2">
+            <p className="font-mono text-xs uppercase tracking-[0.22em] text-muted-foreground">
               {category.replace("-", " / ")}
             </p>
             <h3
               id={`cert-${category}`}
-              className="font-display text-2xl font-normal tracking-tight text-foreground sm:text-3xl"
+              className="text-xl font-semibold tracking-tight text-foreground sm:text-2xl"
             >
               {meta.label}
             </h3>
