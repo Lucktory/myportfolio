@@ -11,22 +11,22 @@ import { Container } from "./Container";
 export function Footer() {
   return (
     <footer className="border-t border-border bg-background">
-      <Container size="wide" className="py-10 sm:py-14">
-        <div className="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
+      <Container size="wide" className="py-12 sm:py-16">
+        <div className="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
           <div className="max-w-md">
-            <p className="text-sm font-semibold tracking-tight text-foreground">
+            <p className="font-display text-2xl font-normal tracking-tight text-foreground">
               {profile.name}
             </p>
-            <p className="mt-1 text-sm text-muted-foreground">
-              {profile.role} · {profile.location}
+            <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
+              {profile.role} / {profile.location}
             </p>
-            <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+            <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
               {siteConfig.description}
             </p>
           </div>
 
           <nav aria-label="Footer">
-            <ul className="grid grid-cols-2 gap-x-10 gap-y-2 text-sm">
+            <ul className="grid grid-cols-2 gap-x-10 gap-y-2 font-mono text-[11px] uppercase tracking-[0.18em]">
               {footerNav.map((item) => (
                 <li key={item.href}>
                   <Link
@@ -41,9 +41,9 @@ export function Footer() {
           </nav>
         </div>
 
-        <div className="mt-10 flex flex-col gap-6 border-t border-border pt-6 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-xs text-muted-foreground">
-            © {getCurrentYear()} {profile.name}. Built with Next.js and Tailwind CSS.
+        <div className="mt-12 flex flex-col gap-6 border-t border-border pt-6 sm:flex-row sm:items-center sm:justify-between">
+          <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-muted-foreground">
+            © {getCurrentYear()} {profile.name} · Built with Next.js + Tailwind
           </p>
           <SocialLinks items={profile.socials} />
         </div>

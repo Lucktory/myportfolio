@@ -5,11 +5,13 @@ import { cn } from "@/lib/cn";
 type CardProps = HTMLAttributes<HTMLDivElement> & {
   as?: "div" | "article" | "section";
   interactive?: boolean;
+  density?: "default" | "compact";
 };
 
 export function Card({
   as: Tag = "div",
   interactive = false,
+  density = "default",
   className,
   children,
   ...rest
@@ -17,9 +19,10 @@ export function Card({
   return (
     <Tag
       className={cn(
-        "relative rounded-2xl border border-border bg-surface p-6 sm:p-7",
+        "relative border border-border bg-surface/60",
+        density === "compact" ? "p-5" : "p-6 sm:p-7",
         "transition-colors",
-        interactive && "hover:border-border-strong hover:bg-surface-hover",
+        interactive && "hover:border-border-strong hover:bg-surface",
         className,
       )}
       {...rest}

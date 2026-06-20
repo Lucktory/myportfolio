@@ -8,13 +8,13 @@ type Variant = "primary" | "secondary" | "ghost";
 type Size = "sm" | "md";
 
 const baseClasses =
-  "inline-flex items-center justify-center gap-2 rounded-full font-medium tracking-tight whitespace-nowrap focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring disabled:opacity-50 disabled:pointer-events-none";
+  "inline-flex items-center justify-center gap-2 font-medium tracking-tight whitespace-nowrap focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring disabled:opacity-50 disabled:pointer-events-none";
 
 const variantMap: Record<Variant, string> = {
   primary:
     "bg-accent text-accent-foreground hover:opacity-90 border border-transparent",
   secondary:
-    "bg-surface text-foreground border border-border hover:border-border-strong hover:bg-surface-hover",
+    "bg-transparent text-foreground border border-border-strong hover:bg-surface-hover",
   ghost:
     "bg-transparent text-foreground border border-transparent hover:bg-surface-hover",
 };

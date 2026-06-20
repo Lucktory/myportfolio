@@ -20,13 +20,13 @@ export function SocialLinks({ items, variant = "icon" }: SocialLinksProps) {
             <li key={item.label}>
               <Link
                 href={item.href}
-                className="group flex items-center gap-3 rounded-md py-1.5 text-sm text-muted-foreground hover:text-foreground"
+                className="group flex items-center gap-3 py-1.5 text-sm text-muted-foreground hover:text-foreground"
                 {...external}
               >
                 <Icon className="size-4" aria-hidden />
                 <span className="font-medium text-foreground">{item.label}</span>
                 {item.handle ? (
-                  <span className="text-muted-foreground">· {item.handle}</span>
+                  <span className="font-mono text-xs text-muted-foreground">· {item.handle}</span>
                 ) : null}
               </Link>
             </li>
@@ -47,7 +47,7 @@ export function SocialLinks({ items, variant = "icon" }: SocialLinksProps) {
               href={item.href}
               aria-label={item.label}
               title={item.label}
-              className="inline-flex size-10 items-center justify-center rounded-full border border-border bg-surface text-muted-foreground hover:border-border-strong hover:bg-surface-hover hover:text-foreground"
+              className="inline-flex size-10 items-center justify-center border border-border bg-surface/60 text-muted-foreground hover:border-border-strong hover:bg-surface hover:text-foreground"
               {...external}
             >
               <Icon className="size-4" aria-hidden />

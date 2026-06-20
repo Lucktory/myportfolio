@@ -34,16 +34,19 @@ export function CertificationList() {
   const groups = groupByCategory(certifications);
 
   return (
-    <div className="flex flex-col gap-14">
+    <div className="flex flex-col gap-16">
       {groups.map(({ category, meta, items }) => (
         <section key={category} aria-labelledby={`cert-${category}`}>
-          <header className="mb-6 flex flex-col gap-1">
-            <h2
+          <header className="mb-6 flex flex-col gap-1.5">
+            <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
+              {category.replace("-", " / ")}
+            </p>
+            <h3
               id={`cert-${category}`}
-              className="text-xl font-semibold tracking-tight text-foreground"
+              className="font-display text-2xl font-normal tracking-tight text-foreground sm:text-3xl"
             >
               {meta.label}
-            </h2>
+            </h3>
             <p className="text-sm text-muted-foreground">{meta.description}</p>
           </header>
           <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

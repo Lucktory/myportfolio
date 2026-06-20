@@ -50,16 +50,19 @@ export function Header() {
         <div className="flex h-16 items-center justify-between gap-6">
           <Link
             href="/"
-            className="text-sm font-semibold tracking-tight text-foreground"
+            className="flex items-center gap-3 text-sm font-semibold tracking-tight text-foreground"
           >
-            {profile.name}
-            <span className="ml-2 hidden text-xs font-normal text-muted-foreground sm:inline">
-              · {profile.role}
+            <span aria-hidden className="font-mono text-accent">
+              ◐
+            </span>
+            <span>{profile.name}</span>
+            <span className="ml-1 hidden font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground sm:inline">
+              / {profile.role}
             </span>
           </Link>
 
           <nav aria-label="Primary" className="hidden md:block">
-            <ul className="flex items-center gap-1">
+            <ul className="flex items-center gap-0.5">
               {primaryNav.map((item) => {
                 const id = getSectionId(item.href);
                 const active = id !== null && id === activeId;
@@ -68,10 +71,10 @@ export function Header() {
                     <Link
                       href={item.href}
                       className={cn(
-                        "rounded-full px-3 py-1.5 text-sm",
+                        "px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.16em] transition-colors",
                         active
-                          ? "bg-muted text-foreground"
-                          : "text-muted-foreground hover:bg-surface-hover hover:text-foreground",
+                          ? "text-foreground"
+                          : "text-muted-foreground hover:text-foreground",
                       )}
                       aria-current={active ? "true" : undefined}
                     >
@@ -89,7 +92,7 @@ export function Header() {
             aria-controls="mobile-nav"
             aria-label={isOpen ? "Close menu" : "Open menu"}
             onClick={() => setIsOpen((open) => !open)}
-            className="inline-flex size-10 items-center justify-center rounded-full border border-border bg-surface text-foreground md:hidden"
+            className="inline-flex size-10 items-center justify-center border border-border bg-surface text-foreground md:hidden"
           >
             {isOpen ? (
               <CloseIcon className="size-4" aria-hidden />
@@ -115,10 +118,10 @@ export function Header() {
                       href={item.href}
                       onClick={() => setIsOpen(false)}
                       className={cn(
-                        "block rounded-md px-3 py-2 text-sm",
+                        "block px-3 py-2 font-mono text-xs uppercase tracking-[0.18em]",
                         active
-                          ? "bg-muted text-foreground"
-                          : "text-muted-foreground hover:bg-surface-hover hover:text-foreground",
+                          ? "text-foreground"
+                          : "text-muted-foreground hover:text-foreground",
                       )}
                       aria-current={active ? "true" : undefined}
                     >

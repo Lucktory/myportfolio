@@ -20,18 +20,18 @@ export function SectionHeading({
   return (
     <header
       className={cn(
-        "flex flex-col gap-4",
+        "flex flex-col gap-5",
         align === "center" ? "items-center text-center" : "items-start",
         className,
       )}
     >
       {eyebrow ? (
-        <span className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
-          <span aria-hidden className="h-px w-6 bg-border-strong" />
+        <span className="inline-flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
+          <span aria-hidden className="h-px w-8 bg-border-strong" />
           {eyebrow}
         </span>
       ) : null}
-      <Heading className="text-balance text-3xl font-semibold tracking-tight text-foreground sm:text-4xl md:text-5xl">
+      <Heading className="font-display text-balance text-4xl font-normal leading-[1.05] tracking-tight text-foreground sm:text-5xl md:text-6xl">
         {title}
       </Heading>
       {description ? (
