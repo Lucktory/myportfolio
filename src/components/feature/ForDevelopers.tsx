@@ -1,27 +1,32 @@
 import Link from "next/link";
 
+import { OperatorCodeBlock } from "@/components/feature/OperatorCodeBlock";
 import { stackILeanOn } from "@/data/about";
 import { credentialsStrip, profile } from "@/data/profile";
 import { getIcon } from "@/lib/icons";
 import { externalLinkProps } from "@/lib/url";
 
-export function ForDevelopers() {
-  const ArrowUpRight = getIcon("arrowUpRight");
+const ArrowUpRight = getIcon("arrowUpRight");
 
+export function ForDevelopers() {
   return (
     <div className="flex flex-col gap-12">
       <p className="max-w-2xl text-base leading-relaxed text-foreground/85 sm:text-lg">
         You&apos;re not the primary audience for this page — the operator above
         is. But you might be the colleague, the referrer, or the future
-        collaborator. Here&apos;s the short version.
+        collaborator. Here&apos;s the short version, in a shape you&apos;ll read.
       </p>
 
-      <dl className="grid gap-px border border-border bg-border md:grid-cols-2">
-        <div className="flex flex-col gap-3 bg-background p-6 sm:p-8">
+      {/* The centrepiece — code-as-introspection */}
+      <OperatorCodeBlock />
+
+      {/* Demoted strip — stack + credentials as quiet typographic lines */}
+      <dl className="grid gap-6 border-y border-border py-6 md:grid-cols-2 md:gap-12">
+        <div className="flex flex-col gap-2">
           <dt className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
             Stack I reach for
           </dt>
-          <dd className="font-display text-xl leading-relaxed text-foreground sm:text-2xl">
+          <dd className="text-base leading-relaxed text-foreground/85">
             {stackILeanOn.map((tool, i) => (
               <span key={tool}>
                 {tool}
@@ -37,18 +42,26 @@ export function ForDevelopers() {
           </dd>
         </div>
 
-        <div className="flex flex-col gap-3 bg-background p-6 sm:p-8">
+        <div className="flex flex-col gap-2">
           <dt className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
             Credentials
           </dt>
-          <dd className="flex flex-col gap-1.5 text-base leading-relaxed text-foreground/85">
-            {credentialsStrip.map((item) => (
-              <span key={item}>{item}</span>
+          <dd className="text-base leading-relaxed text-foreground/85">
+            {credentialsStrip.map((item, i) => (
+              <span key={item}>
+                {item}
+                {i < credentialsStrip.length - 1 ? (
+                  <span aria-hidden className="mx-2 text-border-strong">
+                    /
+                  </span>
+                ) : null}
+              </span>
             ))}
           </dd>
         </div>
       </dl>
 
+      {/* Direct links */}
       <ul className="grid gap-px border border-border bg-border sm:grid-cols-2">
         {profile.socials.map((social) => {
           const Icon = getIcon(social.icon);

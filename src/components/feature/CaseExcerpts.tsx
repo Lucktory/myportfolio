@@ -76,6 +76,22 @@ function CaseExcerptCard({
             {caseStudy.industry}
           </p>
         ) : null}
+
+        {caseStudy.stack && caseStudy.stack.length > 0 ? (
+          <p className="flex flex-wrap items-baseline gap-x-2 gap-y-1 font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
+            <span aria-hidden className="inline-block size-1 translate-y-[-2px] bg-accent" />
+            <span className="text-foreground/80">Stack</span>
+            <span aria-hidden className="text-border-strong">—</span>
+            {caseStudy.stack.map((tool, i) => (
+              <span key={tool} className="inline-flex items-baseline gap-2">
+                {tool}
+                {i < (caseStudy.stack?.length ?? 0) - 1 ? (
+                  <span aria-hidden className="text-border-strong">·</span>
+                ) : null}
+              </span>
+            ))}
+          </p>
+        ) : null}
       </header>
 
       {/* Visual pair — before / after side-by-side from md+ */}

@@ -8,12 +8,20 @@ const ArrowRight = getIcon("arrowRight");
 const Mail = getIcon("mail");
 
 export function ManifestoHero() {
-  // Split the lead at " usually" so the second half can read italic/muted —
-  // the source-of-truth string stays in `aboutLead`.
-  const splitToken = " usually";
-  const splitIdx = aboutLead.indexOf(splitToken);
-  const headLine = splitIdx >= 0 ? aboutLead.slice(0, splitIdx) : aboutLead;
-  const tailLine = splitIdx >= 0 ? aboutLead.slice(splitIdx) : "";
+  // Three-tone treatment for the manifesto, with the source-of-truth held in
+  // `aboutLead`. Layout:
+  //   regular foreground · italic muted · italic accent ("messy") · italic muted
+  const italicMarker = " usually";
+  const accentWord = "messy";
+  const italicIdx = aboutLead.indexOf(italicMarker);
+  const accentIdx = aboutLead.indexOf(accentWord);
+  const hasSplit = italicIdx >= 0 && accentIdx > italicIdx;
+
+  const regularSegment = hasSplit ? aboutLead.slice(0, italicIdx) : aboutLead;
+  const italicBefore = hasSplit ? aboutLead.slice(italicIdx, accentIdx) : "";
+  const italicAfter = hasSplit
+    ? aboutLead.slice(accentIdx + accentWord.length)
+    : "";
 
   return (
     <div className="flex flex-col gap-12 sm:gap-14 lg:gap-16">
@@ -33,8 +41,18 @@ export function ManifestoHero() {
         {/* TEXT — order 2 on mobile so the photo cluster is the first thing seen */}
         <div className="order-2 flex flex-col gap-8 sm:gap-10 md:order-1">
           <h1 className="font-display text-balance text-[2.5rem] font-normal leading-[1.02] tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-[4.5rem] xl:text-[5.25rem]">
-            {headLine}
-            <span className="italic text-muted-foreground">{tailLine}</span>
+            {regularSegment}
+            {hasSplit ? (
+              <>
+                <span className="italic text-muted-foreground">
+                  {italicBefore}
+                </span>
+                <span className="italic text-accent">{accentWord}</span>
+                <span className="italic text-muted-foreground">
+                  {italicAfter}
+                </span>
+              </>
+            ) : null}
           </h1>
 
           <p className="max-w-2xl text-pretty text-base leading-relaxed text-foreground/80 sm:text-lg lg:text-xl">

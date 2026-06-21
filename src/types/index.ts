@@ -143,6 +143,8 @@ export type CaseStudy = {
   outcome: { value: string; label: string };
   beforeImage: CaseImage;
   afterImage: CaseImage;
+  /** 4–6 mono items rendered as a quiet chip strip under the case header. */
+  stack?: string[];
   companyName?: string;
   companyUrl?: string;
   verified?: boolean;

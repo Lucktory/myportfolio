@@ -27,6 +27,7 @@ export const cases: CaseStudy[] = [
     built:
       "An automated extraction pipeline that reads the incoming emails and PDFs, normalises the data, and writes it into a single internal dashboard. Staff now reconcile exceptions instead of typing in rows.",
     outcome: { value: "≈ 12 h / week", label: "reclaimed per staff member" },
+    stack: ["Python", "Pandas", "Postgres", "React", "AWS Lambda"],
     beforeImage: {
       src: "/cases/01-before.png",
       alt: "The master Excel workbook used as the source of truth before the rebuild.",
@@ -50,6 +51,7 @@ export const cases: CaseStudy[] = [
     built:
       "A job-centric CRM built around the firm's real lifecycle: quote → won → surveyed → scheduled → done → invoiced. Each stage owns its own follow-ups; nothing leaves the funnel by accident.",
     outcome: { value: "+18%", label: "follow-ups closed within SLA" },
+    stack: ["Next.js", "TypeScript", "Postgres", "Tailwind", "Vercel"],
     beforeImage: {
       src: "/cases/02-before.png",
       alt: "The generic CRM the team was forced to bend to their workflow.",
@@ -70,6 +72,7 @@ export const cases: CaseStudy[] = [
     built:
       "A single internal ops tool with role-based dashboards: staff see their day, managers see their branch, the owner sees the company. One source of truth, corrected in one place.",
     outcome: { value: "0 weekends", label: "of manual CSV exports per manager" },
+    stack: ["React", "Node", "MySQL", "Redis", "Docker"],
     beforeImage: {
       src: "/cases/03-before.png",
       alt: "The three disconnected systems the team was juggling each week.",
@@ -90,6 +93,7 @@ export const cases: CaseStudy[] = [
     built:
       "Routed approval flows tied to each property, with a real audit trail, digital signatures, and reminders that escalate when nothing happens. Every decision has a name and a timestamp.",
     outcome: { value: "48 h → 6 h", label: "median time-to-approval" },
+    stack: ["Next.js", "TypeScript", "Postgres", "S3", "DocuSign API"],
     beforeImage: {
       src: "/cases/04-before.png",
       alt: "Approvals scattered across WhatsApp threads and email inboxes.",
