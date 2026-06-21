@@ -13,9 +13,9 @@ export const pageMeta: Record<string, PageMeta> = {
     id: "about",
     title: "About",
     eyebrow: "About",
-    heading: "An engineer who cares about the details.",
+    heading: "Software that starts as a messy conversation.",
     description:
-      "A short read on how I work, what I value, and where I'm sharpening next.",
+      "How I think about the work, who I build for, and the boring parts I refuse to skip.",
   },
   skills: {
     id: "skills",

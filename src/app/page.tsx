@@ -1,3 +1,4 @@
+import { AboutComposition } from "@/components/feature/AboutComposition";
 import { CertificationList } from "@/components/feature/CertificationList";
 import { ContactPanel } from "@/components/feature/ContactPanel";
 import { EducationTimeline } from "@/components/feature/EducationTimeline";
@@ -10,12 +11,11 @@ import {
   PhotoBackground,
 } from "@/components/feature/SectionBackground";
 import { SkillMatrix, TopSkillsRow } from "@/components/feature/SkillMatrix";
-import { StrengthsList } from "@/components/feature/StrengthsList";
+import { WorkHistoryCard } from "@/components/feature/WorkHistoryCard";
 import { Container } from "@/components/layout/Container";
 import { Section } from "@/components/layout/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { pageMeta } from "@/config/pages";
-import { profile } from "@/data/profile";
 
 const TOKYO_PHOTO =
   "https://images.unsplash.com/photo-1682985942242-31413035c2db?auto=format&fit=crop&w=2400&q=80";
@@ -35,48 +35,23 @@ export default function HomePage() {
         </Container>
       </Section>
 
-      {/* ABOUT — Dark gradient + accent glow atmosphere */}
+      {/* ABOUT — Long-form philosophy + work-history card */}
       <Section
         id="about"
         spacing="default"
         className="relative isolate overflow-hidden border-t border-border bg-background"
       >
         <AccentGlowBackground />
-        <Container size="wide" className="relative z-10 flex flex-col gap-14">
+        <Container size="wide" className="relative z-10 flex flex-col gap-16">
           <SectionHeading
             eyebrow={pageMeta.about.eyebrow}
             title={pageMeta.about.heading}
             description={pageMeta.about.description}
           />
 
-          <div className="grid gap-14 lg:grid-cols-[1.1fr_1fr]">
-            <div className="flex flex-col gap-5 text-base leading-relaxed text-foreground/85 sm:text-lg">
-              {profile.summary.map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
-              ))}
-              <ul className="mt-2 flex flex-wrap gap-2">
-                <li className="border border-border-strong bg-background/40 px-2.5 py-1 font-mono text-xs uppercase tracking-[0.14em] text-foreground/80">
-                  {profile.role}
-                </li>
-                <li className="border border-border bg-background/40 px-2.5 py-1 font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground">
-                  {profile.currentEmployer.name}
-                </li>
-                <li className="border border-border bg-background/40 px-2.5 py-1 font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground">
-                  {profile.location}
-                </li>
-                <li className="border border-border bg-background/40 px-2.5 py-1 font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground">
-                  {profile.yearsOfExperience} years
-                </li>
-              </ul>
-            </div>
+          <AboutComposition />
 
-            <div className="flex flex-col gap-5">
-              <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
-                How I work
-              </p>
-              <StrengthsList />
-            </div>
-          </div>
+          <WorkHistoryCard />
         </Container>
       </Section>
 
