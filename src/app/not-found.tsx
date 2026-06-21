@@ -10,7 +10,7 @@ export default function NotFound() {
           404
         </p>
         <h1 className="text-balance text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
-          That page doesn't exist.
+          That page doesn&apos;t exist.
         </h1>
         <p className="max-w-xl text-pretty text-base text-muted-foreground sm:text-lg">
           The link may be broken, or the page might have been moved. Head back to

@@ -3,8 +3,8 @@ import type { Profile, Stat } from "@/types";
 export const profile: Profile = {
   name: "Oscar Cheung",
   shortName: "Oscar",
-  role: "Senior Full-Stack Engineer",
-  headline: "React, JavaScript, TypeScript, Python, AWS",
+  role: "Operator-engineer",
+  headline: "Custom CRMs · internal ops tools · workflow automation",
   currentEmployer: {
     name: "PayPay Corporation",
   },
@@ -12,9 +12,9 @@ export const profile: Profile = {
   location: "Japan",
   resumeUrl: undefined,
   summary: [
-    "Full-stack software engineer with 11+ years of experience, specialising in frontend development and cloud technologies.",
-    "Currently at PayPay Corporation in Japan, where I design and ship customer-facing systems with React, TypeScript, and AWS.",
-    "I work across the stack — leading teams, reviewing code, and owning system design — while continuing to deepen my craft through an MSc in Data Science at the University of Edinburgh.",
+    "I build the kind of software that usually starts as a messy conversation — custom CRMs, internal ops tools, and the quiet automation that takes manual work off your team.",
+    "Senior full-stack engineer with 11+ years of production experience. Day job at PayPay Corporation in Japan; consulting work on the side for small and mid-sized businesses whose tools have outgrown their workarounds.",
+    "I bring the same discipline I apply to fintech systems to the smaller teams who shouldn't need an in-house dev department just to run their own company.",
   ],
   socials: [
     {
@@ -31,6 +31,14 @@ export const profile: Profile = {
     },
   ],
 };
+
+// Quiet credentials strip — surfaces in §6 (About the operator) and §7 (For developers).
+export const credentialsStrip: string[] = [
+  "PayPay Corporation",
+  "11+ years",
+  "MSc Data Science · Edinburgh (in progress)",
+  "AWS · ML · FinTech certifications",
+];
 
 export const profileStats: Stat[] = [
   { label: "Years shipping", value: "11+", hint: "Production engineering experience" },

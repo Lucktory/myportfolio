@@ -56,10 +56,10 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#060c1d",
+  themeColor: "#f7f5f0",
   width: "device-width",
   initialScale: 1,
-  colorScheme: "dark",
+  colorScheme: "light",
 };
 
 const fontVariables = `${lexend.variable} ${instrumentSerif.variable} ${jetbrainsMono.variable}`;

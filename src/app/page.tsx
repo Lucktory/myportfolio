@@ -1,147 +1,134 @@
-import { AboutComposition } from "@/components/feature/AboutComposition";
-import { CertificationList } from "@/components/feature/CertificationList";
-import { ContactPanel } from "@/components/feature/ContactPanel";
-import { EducationTimeline } from "@/components/feature/EducationTimeline";
-import { ExperienceList } from "@/components/feature/ExperienceList";
-import { HeroBackgroundMount } from "@/components/feature/HeroBackgroundMount";
-import { HeroIntro } from "@/components/feature/HeroIntro";
-import {
-  AccentGlowBackground,
-  PatternBackground,
-  PhotoBackground,
-} from "@/components/feature/SectionBackground";
-import { SkillMatrix, TopSkillsRow } from "@/components/feature/SkillMatrix";
-import { WorkHistoryCard } from "@/components/feature/WorkHistoryCard";
+import { AboutOperator } from "@/components/feature/AboutOperator";
+import { CaseExcerpts } from "@/components/feature/CaseExcerpts";
+import { ContactDirect } from "@/components/feature/ContactDirect";
+import { ForDevelopers } from "@/components/feature/ForDevelopers";
+import { ManifestoHero } from "@/components/feature/ManifestoHero";
+import { PrinciplesList } from "@/components/feature/PrinciplesList";
+import { ProcessPhases } from "@/components/feature/ProcessPhases";
+import { VoicesTranscript } from "@/components/feature/VoicesTranscript";
 import { Container } from "@/components/layout/Container";
 import { Section } from "@/components/layout/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { pageMeta } from "@/config/pages";
 
-const TOKYO_PHOTO =
-  "https://images.unsplash.com/photo-1682985942242-31413035c2db?auto=format&fit=crop&w=2400&q=80";
-
 export default function HomePage() {
   return (
     <>
-      {/* HERO — Aurora shader (WebGL) */}
+      {/* 1 — MANIFESTO HERO */}
       <Section
         id="top"
         spacing="loose"
-        className="relative isolate overflow-hidden bg-background pt-32 sm:pt-40"
+        className="border-b border-border bg-background pt-32 sm:pt-40"
       >
-        <HeroBackgroundMount />
-        <Container size="wide" className="relative z-10">
-          <HeroIntro />
+        <Container size="wide">
+          <ManifestoHero />
         </Container>
       </Section>
 
-      {/* ABOUT — Long-form philosophy + work-history card */}
+      {/* 2 — THREE VOICES */}
+      <Section
+        id="voices"
+        spacing="default"
+        className="border-b border-border bg-surface/40"
+      >
+        <Container size="wide" className="flex flex-col gap-14">
+          <SectionHeading
+            eyebrow={pageMeta.voices.eyebrow}
+            title={pageMeta.voices.heading}
+            description={pageMeta.voices.description}
+          />
+          <VoicesTranscript />
+        </Container>
+      </Section>
+
+      {/* 3 — CASE EXCERPTS */}
+      <Section
+        id="work"
+        spacing="loose"
+        className="border-b border-border bg-background"
+      >
+        <Container size="wide" className="flex flex-col gap-16">
+          <SectionHeading
+            eyebrow={pageMeta.work.eyebrow}
+            title={pageMeta.work.heading}
+            description={pageMeta.work.description}
+          />
+          <CaseExcerpts />
+        </Container>
+      </Section>
+
+      {/* 4 — HOW A PROJECT RUNS */}
+      <Section
+        id="process"
+        spacing="default"
+        className="border-b border-border bg-surface/40"
+      >
+        <Container size="wide" className="flex flex-col gap-14">
+          <SectionHeading
+            eyebrow={pageMeta.process.eyebrow}
+            title={pageMeta.process.heading}
+            description={pageMeta.process.description}
+          />
+          <ProcessPhases />
+        </Container>
+      </Section>
+
+      {/* 5 — PRINCIPLES */}
+      <Section
+        id="principles"
+        spacing="default"
+        className="border-b border-border bg-background"
+      >
+        <Container size="wide" className="flex flex-col gap-14">
+          <SectionHeading
+            eyebrow={pageMeta.principles.eyebrow}
+            title={pageMeta.principles.heading}
+            description={pageMeta.principles.description}
+          />
+          <PrinciplesList />
+        </Container>
+      </Section>
+
+      {/* 6 — ABOUT THE OPERATOR */}
       <Section
         id="about"
         spacing="default"
-        className="relative isolate overflow-hidden border-t border-border bg-background"
+        className="border-b border-border bg-surface/40"
       >
-        <AccentGlowBackground />
-        <Container size="wide" className="relative z-10 flex flex-col gap-16">
+        <Container size="wide" className="flex flex-col gap-12">
           <SectionHeading
             eyebrow={pageMeta.about.eyebrow}
             title={pageMeta.about.heading}
-            description={pageMeta.about.description}
           />
-
-          <AboutComposition />
-
-          <WorkHistoryCard />
+          <AboutOperator />
         </Container>
       </Section>
 
-      {/* SKILLS — Blueprint grid pattern */}
+      {/* 7 — FOR DEVELOPERS */}
       <Section
-        id="skills"
+        id="developers"
         spacing="default"
-        className="relative isolate overflow-hidden border-t border-border bg-background"
+        className="border-b border-border bg-background"
       >
-        <PatternBackground pattern="grid" />
-        <Container size="wide" className="relative z-10 flex flex-col gap-14">
+        <Container size="default" className="flex flex-col gap-12">
           <SectionHeading
-            eyebrow={pageMeta.skills.eyebrow}
-            title={pageMeta.skills.heading}
-            description={pageMeta.skills.description}
+            eyebrow={pageMeta.developers.eyebrow}
+            title={pageMeta.developers.heading}
+            description={pageMeta.developers.description}
           />
-          <TopSkillsRow />
-          <SkillMatrix />
+          <ForDevelopers />
         </Container>
       </Section>
 
-      {/* EXPERIENCE — Tokyo cityscape photo (Oscar's location) */}
-      <Section
-        id="experience"
-        spacing="default"
-        className="relative isolate overflow-hidden border-t border-border bg-background"
-      >
-        <PhotoBackground
-          src={TOKYO_PHOTO}
-          alt=""
-          position="center"
-          intensity="medium"
-        />
-        <Container size="default" className="relative z-10 flex flex-col gap-14">
-          <SectionHeading
-            eyebrow={pageMeta.experience.eyebrow}
-            title={pageMeta.experience.heading}
-            description={pageMeta.experience.description}
-          />
-          <ExperienceList />
-        </Container>
-      </Section>
-
-      {/* CERTIFICATIONS — Document-feel dot grid */}
-      <Section
-        id="certifications"
-        spacing="default"
-        className="relative isolate overflow-hidden border-t border-border bg-background"
-      >
-        <PatternBackground pattern="dot" />
-        <Container size="wide" className="relative z-10 flex flex-col gap-14">
-          <SectionHeading
-            eyebrow={pageMeta.certifications.eyebrow}
-            title={pageMeta.certifications.heading}
-            description={pageMeta.certifications.description}
-          />
-          <CertificationList />
-        </Container>
-      </Section>
-
-      {/* EDUCATION — Academic diagonal lines */}
-      <Section
-        id="education"
-        spacing="default"
-        className="relative isolate overflow-hidden border-t border-border bg-background"
-      >
-        <PatternBackground pattern="diagonal" />
-        <Container size="default" className="relative z-10 flex flex-col gap-12">
-          <SectionHeading
-            eyebrow="Education"
-            title="Where I trained — and where I'm sharpening next."
-          />
-          <EducationTimeline />
-        </Container>
-      </Section>
-
-      {/* CONTACT — Minimal accent glow */}
-      <Section
-        id="contact"
-        spacing="default"
-        className="relative isolate overflow-hidden border-t border-border bg-background"
-      >
-        <AccentGlowBackground />
-        <Container size="default" className="relative z-10 flex flex-col gap-12">
+      {/* 8 — CONTACT */}
+      <Section id="contact" spacing="loose" className="bg-surface/40">
+        <Container size="wide" className="flex flex-col gap-12">
           <SectionHeading
             eyebrow={pageMeta.contact.eyebrow}
             title={pageMeta.contact.heading}
             description={pageMeta.contact.description}
           />
-          <ContactPanel />
+          <ContactDirect />
         </Container>
       </Section>
     </>

@@ -3,6 +3,9 @@ import type { IconKey } from "@/types";
 export const aboutLead =
   "I build the kind of software that usually starts as a messy conversation.";
 
+export const aboutSubline =
+  "Operator-engineer for small and mid-sized businesses whose tools have outgrown the workarounds. Custom CRMs, internal ops tools, and the quiet automation that takes manual work off your team.";
+
 export const aboutVoices: { speaker: string; quote: string }[] = [
   { speaker: "A business owner", quote: "We're doing this in Excel." },
   { speaker: "A manager", quote: "The team keeps forgetting follow-ups." },
@@ -12,13 +15,14 @@ export const aboutVoices: { speaker: string; quote: string }[] = [
   },
 ];
 
-export const aboutNarrative: string[] = [
-  "That is normally where my work begins. I'm not the developer who waits for a perfect specification — most real businesses don't have one. They have habits, shortcuts, old spreadsheets, WhatsApp messages, half-working systems, and people doing too much manual work every day.",
-  "My job is to understand that reality first, then turn it into software that feels natural for the team to use. I've built systems around customers, jobs, staff, payments, reports, reminders, approvals, documents, and daily operations — not just screens or buttons, but real workflows that people depend on.",
-  "I don't believe every company needs a big complicated platform. Sometimes the right answer is a simple internal tool that removes five hours of manual work each week. Sometimes it's a custom CRM because the off-the-shelf ones force the business to work the wrong way. Sometimes it's quiet automation that takes a repeating task off the team's plate.",
+// "About the operator" — short personal bio for §6.
+export const operatorBio: string[] = [
+  "I'm Oscar — a senior full-stack engineer based in Japan, currently shipping at PayPay Corporation. On the side, I take on consulting work for small and mid-sized businesses whose operations have outgrown their tools.",
+  "Eleven years of production engineering taught me that the boring parts decide whether software actually helps. I bring that discipline to teams who shouldn't need an in-house dev department just to run their own company.",
+  "Outside of building, I'm reading toward an MSc in Data Science at the University of Edinburgh.",
 ];
 
-export const aboutClosing =
+export const operatorClosing =
   "My strength is taking unclear business operations and making them clean, usable, and reliable — without making the company feel like they now need a technical department just to use their own software.";
 
 // The boring parts I refuse to skip — they decide whether a system survives.
@@ -29,50 +33,6 @@ export const aboutPrinciples: { label: string; detail: string }[] = [
   { label: "Oversight", detail: "How managers actually check the work." },
   { label: "Follow-ups", detail: "How nothing important gets quietly forgotten." },
   { label: "Load", detail: "How the system holds up when the team gets busy." },
-];
-
-export type WorkHistoryItem = {
-  id: string;
-  title: string;
-  summary: string;
-  href: string;
-  icon: IconKey;
-  external?: boolean;
-};
-
-export const workHistoryDomains: WorkHistoryItem[] = [
-  {
-    id: "crm",
-    title: "Custom CRM systems",
-    summary:
-      "Built around how the team actually sells and follows up — not the other way around.",
-    href: "#contact",
-    icon: "users",
-  },
-  {
-    id: "ops",
-    title: "Internal operations tools",
-    summary:
-      "Replacing brittle spreadsheets with workflows that hold up under real daily load.",
-    href: "#contact",
-    icon: "wrench",
-  },
-  {
-    id: "automation",
-    title: "Workflow automation",
-    summary:
-      "Quietly removing the repeating work that burns hours off the team every week.",
-    href: "#contact",
-    icon: "sparkles",
-  },
-  {
-    id: "approvals",
-    title: "Approvals & document flows",
-    summary:
-      "Routing, audit trails, corrections — the boring parts that decide if a system survives.",
-    href: "#contact",
-    icon: "shield",
-  },
 ];
 
 // What I build software around — the nouns of an operating business.
@@ -87,3 +47,26 @@ export const aboutBuildsAround: string[] = [
   "Documents",
   "Daily operations",
 ];
+
+// Operator personal photo. Replace placeholder with a real headshot:
+//   1. Drop the file in `public/operator/headshot.jpg`
+//   2. Set `placeholder: false` (or remove the field)
+export const operatorPhoto: { src: string; alt: string; placeholder?: boolean } = {
+  src: "/operator/headshot.jpg",
+  alt: "Oscar Cheung — portrait.",
+  placeholder: true,
+};
+
+// Stack the operator reaches for, for §7 (For developers).
+export const stackILeanOn: string[] = [
+  "React",
+  "TypeScript",
+  "Python",
+  "Node",
+  "Postgres",
+  "AWS",
+  "the boring sane parts of every team's stack",
+];
+
+// Optional — icon mapping retained in case it's needed downstream.
+export type AboutIcon = IconKey;

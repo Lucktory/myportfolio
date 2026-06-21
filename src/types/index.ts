@@ -113,11 +113,43 @@ export type PageMeta = {
   title: string;
   eyebrow: string;
   heading: string;
-  description: string;
+  description?: string;
 };
 
 export type Stat = {
   label: string;
   value: string;
   hint?: string;
+};
+
+export type CaseImage = {
+  src: string;
+  alt: string;
+  placeholder?: boolean;
+};
+
+export type CaseShape =
+  | "Workflow automation"
+  | "Custom CRM"
+  | "Internal ops tool"
+  | "Approvals & documents";
+
+export type CaseStudy = {
+  id: string;
+  industry: string;
+  shape: CaseShape;
+  before: string;
+  built: string;
+  outcome: { value: string; label: string };
+  beforeImage: CaseImage;
+  afterImage: CaseImage;
+  companyName?: string;
+  companyUrl?: string;
+  verified?: boolean;
+};
+
+export type ProcessPhase = {
+  id: string;
+  title: string;
+  body: string;
 };

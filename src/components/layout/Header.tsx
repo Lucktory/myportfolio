@@ -10,6 +10,9 @@ import { getIcon } from "@/lib/icons";
 
 import { Container } from "./Container";
 
+const MenuIcon = getIcon("menu");
+const CloseIcon = getIcon("close");
+
 function getSectionId(href: string): string | null {
   return href.startsWith("#") ? href.slice(1) : null;
 }
@@ -17,8 +20,6 @@ function getSectionId(href: string): string | null {
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeId, setActiveId] = useState<string | null>(null);
-  const MenuIcon = getIcon("menu");
-  const CloseIcon = getIcon("close");
 
   useEffect(() => {
     const ids = primaryNav

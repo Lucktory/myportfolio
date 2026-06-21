@@ -5,48 +5,62 @@ export const pageMeta: Record<string, PageMeta> = {
     id: "home",
     title: "Home",
     eyebrow: "Portfolio",
-    heading: "Senior full-stack engineer focused on the frontend and the cloud.",
+    heading: "I build software that usually starts as a messy conversation.",
     description:
-      "11+ years of building production systems with React, TypeScript, and AWS. Currently shipping at PayPay Corporation in Japan.",
+      "Operator-engineer for small and mid-sized businesses whose tools have outgrown their workarounds.",
+  },
+  voices: {
+    id: "voices",
+    title: "Voices",
+    eyebrow: "Where projects begin",
+    heading: "Three things I hear before any code gets written.",
+    description:
+      "If you recognise yourself in one of these sentences, you're already in the right place.",
+  },
+  work: {
+    id: "work",
+    title: "Work",
+    eyebrow: "Case excerpts",
+    heading: "Different industries, same shape of work.",
+    description:
+      "Each one started with a spreadsheet, a workaround, or a system the team had outgrown. Names and screenshots are anonymised where the engagement requires it.",
+  },
+  process: {
+    id: "process",
+    title: "Process",
+    eyebrow: "How a project runs",
+    heading: "Six phases. No surprises.",
+    description:
+      "This is what hiring me actually looks like — written so you can decide before sending an email.",
+  },
+  principles: {
+    id: "principles",
+    title: "Principles",
+    eyebrow: "Things I won't skip",
+    heading: "The boring parts that decide whether a system survives.",
+    description:
+      "Most teams don't lose to the exciting features. They lose to the parts nobody volunteered to own.",
   },
   about: {
     id: "about",
     title: "About",
-    eyebrow: "About",
-    heading: "Software that starts as a messy conversation.",
-    description:
-      "How I think about the work, who I build for, and the boring parts I refuse to skip.",
+    eyebrow: "The operator",
+    heading: "Eleven years of production engineering, brought to small teams.",
   },
-  skills: {
-    id: "skills",
-    title: "Skills",
-    eyebrow: "Toolbelt",
-    heading: "What I bring to a team.",
+  developers: {
+    id: "developers",
+    title: "For developers",
+    eyebrow: "For developers",
+    heading: "If you're a developer reading this —",
     description:
-      "Grouped by depth — the stack I lead with, the tools I'm comfortable in, and the practices I bring beyond the code.",
-  },
-  experience: {
-    id: "experience",
-    title: "Experience",
-    eyebrow: "Career",
-    heading: "Where I'm building today.",
-    description:
-      "Currently at PayPay Corporation in Japan, with 11+ years of full-stack engineering behind that.",
-  },
-  certifications: {
-    id: "certifications",
-    title: "Certifications",
-    eyebrow: "Credentials",
-    heading: "Continuous learning, on the record.",
-    description:
-      "A working record of certifications across cloud, machine learning, fintech, and team facilitation.",
+      "You're not the primary audience for this page. But you might be the colleague, the referrer, or the future collaborator. Here's the short version.",
   },
   contact: {
     id: "contact",
     title: "Contact",
-    eyebrow: "Let's talk",
-    heading: "Open to a conversation.",
+    eyebrow: "Get in touch",
+    heading: "Tell me about the mess. The unedited version.",
     description:
-      "The best way to reach me is LinkedIn. I read every message and reply when I can give it a real answer.",
+      "I read every message. Replies come when I can give you a real answer — usually within a few days.",
   },
 };
