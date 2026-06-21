@@ -48,13 +48,47 @@ export const aboutBuildsAround: string[] = [
   "Daily operations",
 ];
 
-// Operator personal photo. Replace placeholder with a real headshot:
+// Operator personal photo (used in §6 About). Replace placeholder with a real headshot:
 //   1. Drop the file in `public/operator/headshot.jpg`
 //   2. Set `placeholder: false` (or remove the field)
 export const operatorPhoto: { src: string; alt: string; placeholder?: boolean } = {
   src: "/operator/headshot.jpg",
   alt: "Oscar Cheung — portrait.",
   placeholder: true,
+};
+
+/**
+ * Hero photo cluster (used in §1 Manifesto Hero).
+ *
+ * `primary` is the large circular portrait — drop this in first.
+ * `satellites` are 0–2 smaller circular images that orbit the primary
+ * (project moment, workspace shot, on-site photo, etc.). Leave the
+ * `satellites` array empty if you'd prefer a single portrait.
+ *
+ * Replace by:
+ *   1. Drop the real image at the listed path under `public/`
+ *   2. Remove `placeholder: true` from that entry
+ */
+export type HeroPhoto = { src: string; alt: string; placeholder?: boolean };
+
+export const heroPhotos: { primary: HeroPhoto; satellites: HeroPhoto[] } = {
+  primary: {
+    src: "/hero/portrait.jpg",
+    alt: "Oscar — primary portrait.",
+    placeholder: true,
+  },
+  satellites: [
+    {
+      src: "/hero/satellite-1.jpg",
+      alt: "On-site with a client team.",
+      placeholder: true,
+    },
+    {
+      src: "/hero/satellite-2.jpg",
+      alt: "At the workspace.",
+      placeholder: true,
+    },
+  ],
 };
 
 // Stack the operator reaches for, for §7 (For developers).

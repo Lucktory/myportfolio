@@ -1,21 +1,22 @@
 /* theme.css — Paper Editorial.
    Warm off-white background, near-black ink, single rust accent.
-   Designed to read as a magazine essay, not a SaaS landing page. */
+   `muted` is deepened so alternating section backgrounds give real
+   visual separation (not 40%-opacity tints). */
 
 :root {
   color-scheme: light;
 
-  --background: #f7f5f0;
+  --background: #f7f4ec;
   --foreground: #1a1612;
-  --muted: #ece8df;
+  --muted: #e8e0cf;
   --muted-foreground: #6b6357;
-  --surface: #efebe1;
-  --surface-hover: #e6e0d0;
-  --border: #d9d3c5;
-  --border-strong: #b8b09e;
+  --surface: #f0e9d8;
+  --surface-hover: #e2dccc;
+  --border: #d2cab8;
+  --border-strong: #a89e87;
 
   --accent: #c8553d;
-  --accent-foreground: #f7f5f0;
+  --accent-foreground: #f7f4ec;
   --accent-soft: rgba(200, 85, 61, 0.10);
 
   --ring: #c8553d;

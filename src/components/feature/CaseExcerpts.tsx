@@ -84,8 +84,8 @@ function CaseExcerptCard({
         <CaseImage image={caseStudy.afterImage} role="after" />
       </div>
 
-      {/* Body — three editorial blocks */}
-      <div className="grid gap-10 border-t border-border pt-8 sm:grid-cols-3 sm:gap-12">
+      {/* Body — three editorial blocks. 3-col only on md+ to avoid cramping at 640px. */}
+      <div className="grid gap-8 border-t border-border pt-8 sm:gap-10 md:grid-cols-3 md:gap-12">
         <div className="flex flex-col gap-3">
           <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
             The mess

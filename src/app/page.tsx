@@ -11,14 +11,16 @@ import { Section } from "@/components/layout/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { pageMeta } from "@/config/pages";
 
+const TOTAL_SECTIONS = 8;
+
 export default function HomePage() {
   return (
     <>
       {/* 1 — MANIFESTO HERO */}
       <Section
         id="top"
-        spacing="loose"
-        className="border-b border-border bg-background pt-32 sm:pt-40"
+        spacing="xl"
+        className="bg-background pt-32 sm:pt-36 lg:pt-40"
       >
         <Container size="wide">
           <ManifestoHero />
@@ -26,13 +28,11 @@ export default function HomePage() {
       </Section>
 
       {/* 2 — THREE VOICES */}
-      <Section
-        id="voices"
-        spacing="default"
-        className="border-b border-border bg-surface/40"
-      >
-        <Container size="wide" className="flex flex-col gap-14">
+      <Section id="voices" spacing="xl" className="bg-muted">
+        <Container size="wide" className="flex flex-col gap-16 lg:gap-20">
           <SectionHeading
+            index="02"
+            totalSections={TOTAL_SECTIONS}
             eyebrow={pageMeta.voices.eyebrow}
             title={pageMeta.voices.heading}
             description={pageMeta.voices.description}
@@ -42,13 +42,11 @@ export default function HomePage() {
       </Section>
 
       {/* 3 — CASE EXCERPTS */}
-      <Section
-        id="work"
-        spacing="loose"
-        className="border-b border-border bg-background"
-      >
-        <Container size="wide" className="flex flex-col gap-16">
+      <Section id="work" spacing="xl" className="bg-background">
+        <Container size="wide" className="flex flex-col gap-16 lg:gap-24">
           <SectionHeading
+            index="03"
+            totalSections={TOTAL_SECTIONS}
             eyebrow={pageMeta.work.eyebrow}
             title={pageMeta.work.heading}
             description={pageMeta.work.description}
@@ -58,13 +56,11 @@ export default function HomePage() {
       </Section>
 
       {/* 4 — HOW A PROJECT RUNS */}
-      <Section
-        id="process"
-        spacing="default"
-        className="border-b border-border bg-surface/40"
-      >
-        <Container size="wide" className="flex flex-col gap-14">
+      <Section id="process" spacing="xl" className="bg-muted">
+        <Container size="wide" className="flex flex-col gap-16 lg:gap-20">
           <SectionHeading
+            index="04"
+            totalSections={TOTAL_SECTIONS}
             eyebrow={pageMeta.process.eyebrow}
             title={pageMeta.process.heading}
             description={pageMeta.process.description}
@@ -74,13 +70,11 @@ export default function HomePage() {
       </Section>
 
       {/* 5 — PRINCIPLES */}
-      <Section
-        id="principles"
-        spacing="default"
-        className="border-b border-border bg-background"
-      >
-        <Container size="wide" className="flex flex-col gap-14">
+      <Section id="principles" spacing="xl" className="bg-background">
+        <Container size="wide" className="flex flex-col gap-16 lg:gap-20">
           <SectionHeading
+            index="05"
+            totalSections={TOTAL_SECTIONS}
             eyebrow={pageMeta.principles.eyebrow}
             title={pageMeta.principles.heading}
             description={pageMeta.principles.description}
@@ -90,13 +84,11 @@ export default function HomePage() {
       </Section>
 
       {/* 6 — ABOUT THE OPERATOR */}
-      <Section
-        id="about"
-        spacing="default"
-        className="border-b border-border bg-surface/40"
-      >
-        <Container size="wide" className="flex flex-col gap-12">
+      <Section id="about" spacing="xl" className="bg-muted">
+        <Container size="wide" className="flex flex-col gap-14 lg:gap-16">
           <SectionHeading
+            index="06"
+            totalSections={TOTAL_SECTIONS}
             eyebrow={pageMeta.about.eyebrow}
             title={pageMeta.about.heading}
           />
@@ -105,13 +97,11 @@ export default function HomePage() {
       </Section>
 
       {/* 7 — FOR DEVELOPERS */}
-      <Section
-        id="developers"
-        spacing="default"
-        className="border-b border-border bg-background"
-      >
-        <Container size="default" className="flex flex-col gap-12">
+      <Section id="developers" spacing="xl" className="bg-background">
+        <Container size="default" className="flex flex-col gap-14 lg:gap-16">
           <SectionHeading
+            index="07"
+            totalSections={TOTAL_SECTIONS}
             eyebrow={pageMeta.developers.eyebrow}
             title={pageMeta.developers.heading}
             description={pageMeta.developers.description}
@@ -121,9 +111,11 @@ export default function HomePage() {
       </Section>
 
       {/* 8 — CONTACT */}
-      <Section id="contact" spacing="loose" className="bg-surface/40">
-        <Container size="wide" className="flex flex-col gap-12">
+      <Section id="contact" spacing="xl" className="bg-muted">
+        <Container size="wide" className="flex flex-col gap-14 lg:gap-16">
           <SectionHeading
+            index="08"
+            totalSections={TOTAL_SECTIONS}
             eyebrow={pageMeta.contact.eyebrow}
             title={pageMeta.contact.heading}
             description={pageMeta.contact.description}

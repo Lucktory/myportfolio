@@ -4,7 +4,7 @@ import { cn } from "@/lib/cn";
 
 type SectionProps = HTMLAttributes<HTMLElement> & {
   id?: string;
-  spacing?: "tight" | "default" | "loose";
+  spacing?: "tight" | "default" | "loose" | "xl";
   as?: "section" | "article" | "div";
 };
 
@@ -12,6 +12,7 @@ const spacingMap = {
   tight: "py-12 sm:py-16",
   default: "py-16 sm:py-24",
   loose: "py-24 sm:py-32",
+  xl: "py-28 sm:py-36 lg:py-44",
 } as const;
 
 export function Section({
