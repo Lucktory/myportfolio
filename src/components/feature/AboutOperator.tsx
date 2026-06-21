@@ -6,13 +6,13 @@ import { cn } from "@/lib/cn";
 
 export function AboutOperator() {
   return (
-    <div className="grid gap-12 lg:grid-cols-[300px_1fr] lg:gap-20">
+    <div className="grid gap-10 md:grid-cols-[200px_1fr] md:gap-12 lg:grid-cols-[300px_1fr] lg:gap-20">
       {/* Portrait — swap-me until a real headshot lands */}
-      <OperatorPortrait className="w-full max-w-[300px]" />
+      <OperatorPortrait className="w-full max-w-[260px] md:max-w-[200px] lg:max-w-[300px]" />
 
       {/* Bio + credentials */}
       <div className="flex flex-col gap-10">
-        <div className="flex max-w-2xl flex-col gap-5 text-base leading-relaxed text-foreground/85 sm:text-lg">
+        <div className="flex flex-col gap-5 text-base leading-relaxed text-foreground/85 sm:text-lg">
           {operatorBio.map((paragraph) => (
             <p key={paragraph}>{paragraph}</p>
           ))}

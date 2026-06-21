@@ -78,8 +78,8 @@ function CaseExcerptCard({
         ) : null}
       </header>
 
-      {/* Visual pair — before / after */}
-      <div className="grid gap-4 sm:gap-6 lg:grid-cols-2">
+      {/* Visual pair — before / after side-by-side from md+ */}
+      <div className="grid gap-4 sm:gap-6 md:grid-cols-2 md:gap-5 lg:gap-6">
         <CaseImage image={caseStudy.beforeImage} role="before" />
         <CaseImage image={caseStudy.afterImage} role="after" />
       </div>

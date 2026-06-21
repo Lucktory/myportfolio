@@ -75,14 +75,14 @@ export function SectionHeading({
 
       <div
         className={cn(
-          "grid gap-6 sm:gap-10",
-          hasIndex ? "sm:grid-cols-[140px_1fr] lg:grid-cols-[180px_1fr]" : "",
+          "grid gap-6 md:gap-10",
+          hasIndex ? "md:grid-cols-[140px_1fr] lg:grid-cols-[180px_1fr]" : "",
         )}
       >
         {hasIndex ? (
           <span
             aria-hidden
-            className="font-display text-7xl leading-none tracking-tight text-foreground/85 sm:text-8xl lg:text-[8rem]"
+            className="font-display text-6xl leading-none tracking-tight text-foreground/85 sm:text-7xl md:text-8xl lg:text-[8rem]"
           >
             {index}
           </span>

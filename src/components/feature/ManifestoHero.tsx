@@ -28,10 +28,10 @@ export function ManifestoHero() {
         </span>
       </div>
 
-      {/* Main content grid — text left, photo cluster right on lg+ */}
-      <div className="grid items-start gap-10 sm:gap-12 lg:grid-cols-[1.25fr_1fr] lg:gap-20">
+      {/* Main content grid — text left, photo cluster right from md+ */}
+      <div className="grid items-start gap-10 sm:gap-12 md:grid-cols-[1.35fr_1fr] md:gap-12 lg:grid-cols-[1.25fr_1fr] lg:gap-20">
         {/* TEXT — order 2 on mobile so the photo cluster is the first thing seen */}
-        <div className="order-2 flex flex-col gap-8 sm:gap-10 lg:order-1">
+        <div className="order-2 flex flex-col gap-8 sm:gap-10 md:order-1">
           <h1 className="font-display text-balance text-[2.5rem] font-normal leading-[1.02] tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-[4.5rem] xl:text-[5.25rem]">
             {headLine}
             <span className="italic text-muted-foreground">{tailLine}</span>
@@ -76,7 +76,7 @@ export function ManifestoHero() {
         </div>
 
         {/* PHOTO CLUSTER — order 1 on mobile (lead with the photos) */}
-        <div className="order-1 lg:order-2">
+        <div className="order-1 md:order-2">
           <HeroPhotoCluster />
         </div>
       </div>
@@ -89,20 +89,21 @@ function HeroPhotoCluster() {
 
   return (
     <div className="w-full">
-      {/* MOBILE & TABLET — primary centered, satellites in a row below */}
-      <div className="flex flex-col items-center gap-5 lg:hidden">
+      {/* MOBILE & TABLET — primary centered, satellites in a row below.
+          Sizes shrink at md when the cluster sits inside a narrow grid column. */}
+      <div className="flex flex-col items-center gap-4 sm:gap-5 lg:hidden">
         <CircularPhoto
           photo={primary}
-          sizeClass="size-52 sm:size-64 md:size-72"
+          sizeClass="size-52 sm:size-64 md:size-56"
           emphasis="primary"
         />
         {satellites.length > 0 ? (
-          <div className="flex items-center justify-center gap-4">
+          <div className="flex items-center justify-center gap-3 sm:gap-4">
             {satellites.map((photo, index) => (
               <CircularPhoto
                 key={`${photo.src}-${index}`}
                 photo={photo}
-                sizeClass="size-20 sm:size-24 md:size-28"
+                sizeClass="size-20 sm:size-24 md:size-20"
               />
             ))}
           </div>

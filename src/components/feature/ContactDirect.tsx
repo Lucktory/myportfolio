@@ -4,20 +4,20 @@ import { profile } from "@/data/profile";
 import { getIcon } from "@/lib/icons";
 import { externalLinkProps } from "@/lib/url";
 
-export function ContactDirect() {
-  const ArrowUpRight = getIcon("arrowUpRight");
+const ArrowUpRight = getIcon("arrowUpRight");
 
+export function ContactDirect() {
   return (
-    <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr] lg:gap-20">
+    <div className="grid gap-10 md:grid-cols-[1.5fr_1fr] md:gap-12 lg:gap-20">
       {/* What to send — direct, no form */}
       <div className="flex flex-col gap-6">
-        <p className="max-w-xl text-lg leading-relaxed text-foreground/85 sm:text-xl">
+        <p className="text-lg leading-relaxed text-foreground/85 sm:text-xl">
           Whatever&apos;s closest to the truth: a screenshot of the spreadsheet,
           a paragraph about how the workflow actually runs, the worst day you
           had last month.
         </p>
 
-        <ul className="flex max-w-xl flex-col gap-3 border-l-2 border-accent pl-5 sm:pl-6">
+        <ul className="flex flex-col gap-3 border-l-2 border-accent pl-5 sm:pl-6">
           <li className="flex gap-3 text-base leading-relaxed text-foreground/85">
             <span
               aria-hidden
@@ -43,7 +43,7 @@ export function ContactDirect() {
           </li>
         </ul>
 
-        <p className="max-w-xl text-sm leading-relaxed text-muted-foreground">
+        <p className="text-sm leading-relaxed text-muted-foreground">
           No forms. No discovery-call funnel. A real message, a real reply.
         </p>
       </div>
