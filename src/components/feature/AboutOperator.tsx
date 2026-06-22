@@ -59,7 +59,7 @@ function OperatorPortrait({ className }: { className?: string }) {
       >
         <div
           aria-hidden
-          className="absolute inset-0 bg-[repeating-linear-gradient(135deg,transparent_0,transparent_10px,rgba(26,22,18,0.045)_10px,rgba(26,22,18,0.045)_11px)]"
+          className="absolute inset-0 bg-[repeating-linear-gradient(135deg,transparent_0,transparent_10px,rgba(245,245,245,0.045)_10px,rgba(245,245,245,0.045)_11px)]"
         />
         <div className="relative flex h-full flex-col justify-between gap-4 p-5">
           <span className="inline-flex w-fit items-center gap-2 border border-border-strong bg-background px-2 py-1 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">

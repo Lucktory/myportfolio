@@ -54,10 +54,10 @@ function PlaceholderFrame({ image, role, className }: Props) {
         className,
       )}
     >
-      {/* Subtle diagonal hatch — paper-friendly, low contrast */}
+      {/* Subtle diagonal hatch — low-contrast lift on dark */}
       <div
         aria-hidden
-        className="absolute inset-0 bg-[repeating-linear-gradient(135deg,transparent_0,transparent_10px,rgba(26,22,18,0.045)_10px,rgba(26,22,18,0.045)_11px)]"
+        className="absolute inset-0 bg-[repeating-linear-gradient(135deg,transparent_0,transparent_10px,rgba(245,245,245,0.045)_10px,rgba(245,245,245,0.045)_11px)]"
       />
 
       <div className="relative flex h-full flex-col justify-between gap-4 p-5">

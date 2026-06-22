@@ -1,24 +1,24 @@
-/* theme.css — Paper Editorial.
-   Warm off-white background, near-black ink, single rust accent.
-   `muted` is deepened so alternating section backgrounds give real
-   visual separation (not 40%-opacity tints). */
+/* theme.css — Studio Black.
+   Pure neutral charcoal background, off-white ink, single warm amber accent.
+   Designed for cinematic video material: dark frame, high-contrast UI,
+   one chromatic note that doesn't compete with the footage. */
 
 :root {
-  color-scheme: light;
+  color-scheme: dark;
 
-  --background: #f7f4ec;
-  --foreground: #1a1612;
-  --muted: #e8e0cf;
-  --muted-foreground: #6b6357;
-  --surface: #f0e9d8;
-  --surface-hover: #e2dccc;
-  --border: #d2cab8;
-  --border-strong: #a89e87;
+  --background: #0a0a0a;
+  --foreground: #f5f5f5;
+  --muted: #161616;
+  --muted-foreground: #a3a3a3;
+  --surface: #161616;
+  --surface-hover: #1f1f1f;
+  --border: #262626;
+  --border-strong: #3a3a3a;
 
-  --accent: #c8553d;
-  --accent-foreground: #f7f4ec;
-  --accent-soft: rgba(200, 85, 61, 0.10);
+  --accent: #d4a85a;
+  --accent-foreground: #0a0a0a;
+  --accent-soft: rgba(212, 168, 90, 0.12);
 
-  --ring: #c8553d;
-  --success: #3d6b3d;
+  --ring: #d4a85a;
+  --success: #4ade80;
 }

@@ -66,10 +66,10 @@ function PlaceholderCircle({
 }) {
   return (
     <>
-      {/* Subtle diagonal hatch — paper-friendly, low contrast */}
+      {/* Subtle diagonal hatch — low-contrast lift on dark */}
       <div
         aria-hidden
-        className="absolute inset-0 bg-[repeating-linear-gradient(135deg,transparent_0,transparent_8px,rgba(26,22,18,0.05)_8px,rgba(26,22,18,0.05)_9px)]"
+        className="absolute inset-0 bg-[repeating-linear-gradient(135deg,transparent_0,transparent_8px,rgba(245,245,245,0.05)_8px,rgba(245,245,245,0.05)_9px)]"
       />
 
       {/* Centered swap-me label */}
