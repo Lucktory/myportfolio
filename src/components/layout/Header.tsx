@@ -46,19 +46,22 @@ export function Header() {
   }, []);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-40 border-b border-border/60 bg-background/70 backdrop-blur-md supports-[backdrop-filter]:bg-background/60">
+    <header className="fixed inset-x-0 top-0 z-40 border-b border-border-strong/70 bg-background">
       <Container size="wide">
         <div className="flex h-16 items-center justify-between gap-6">
           <Link
             href="/"
-            className="flex items-center gap-3 text-sm font-semibold tracking-tight text-foreground"
+            className="flex items-baseline gap-3 text-foreground"
           >
-            <span aria-hidden className="font-mono text-accent">
-              ◐
+            <span
+              aria-hidden
+              className="inline-flex size-2 translate-y-[-2px] bg-accent"
+            />
+            <span className="text-sm font-semibold tracking-tight">
+              {profile.name}
             </span>
-            <span>{profile.name}</span>
             <span className="ml-1 hidden font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground sm:inline">
-              / {profile.role}
+              {profile.role}
             </span>
           </Link>
 
