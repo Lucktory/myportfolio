@@ -1,0 +1,35 @@
+.boot {
+  color: var(--gray-light);
+  margin-bottom: 32px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+  font-size: 12px;
+}
+
+.line {
+  animation: fadein 0.2s ease-in;
+}
+
+.ready {
+  color: var(--green);
+  font-weight: 500;
+}
+
+.cursor {
+  color: var(--green);
+  animation: blink 1s step-end infinite;
+}
+
+.done {
+  opacity: 0.5;
+}
+
+@keyframes fadein {
+  from { opacity: 0; transform: translateY(2px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}

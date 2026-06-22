@@ -1,128 +1,235 @@
-import { AboutOperator } from "@/components/feature/AboutOperator";
-import { CaseExcerpts } from "@/components/feature/CaseExcerpts";
-import { ContactDirect } from "@/components/feature/ContactDirect";
-import { ForDevelopers } from "@/components/feature/ForDevelopers";
-import { ManifestoHero } from "@/components/feature/ManifestoHero";
-import { PrinciplesList } from "@/components/feature/PrinciplesList";
-import { ProcessPhases } from "@/components/feature/ProcessPhases";
-import { VoicesTranscript } from "@/components/feature/VoicesTranscript";
-import { Container } from "@/components/layout/Container";
-import { Section } from "@/components/layout/Section";
-import { SectionHeading } from "@/components/ui/SectionHeading";
-import { pageMeta } from "@/config/pages";
+import Navbar from '@/components/Navbar';
+import HeroSection from '@/components/HeroSection';
+import ExperienceSection from '@/components/ExperienceSection';
+import ProjectCard from '@/components/ProjectCard';
+import SkillBackground from '@/components/SkillBackground';
+import { projects, skills } from '@/data/projects';
+import styles from './page.module.css';
 
-const TOTAL_SECTIONS = 8;
+export default function Home() {
+  const professional = projects.filter((p) => p.type === 'professional');
+  const personal     = projects.filter((p) => p.type === 'personal');
 
-export default function HomePage() {
+  // proficiency reflects actual career evidence — proficient stack at top,
+  // intermediate / supporting stacks lower
+  const skillEntries: { label: string; color: string; items: { name: string; pct: number }[] }[] = [
+    { label: 'Web Frontend', color: '#06b6d4', items: [
+      { name: 'React.js',   pct: 95 },
+      { name: 'TypeScript', pct: 92 },
+      { name: 'JavaScript', pct: 95 },
+      { name: 'Redux',      pct: 90 },
+      { name: 'Vue.js',     pct: 65 },
+      { name: 'Next.js',    pct: 72 },
+    ]},
+    { label: 'Cloud & Infrastructure', color: '#eab308', items: [
+      { name: 'AWS',            pct: 92 },
+      { name: 'Google Cloud',   pct: 65 },
+      { name: 'DevOps',         pct: 70 },
+      { name: 'Docker',         pct: 72 },
+      { name: 'GitHub Actions', pct: 78 },
+    ]},
+    { label: 'Backend', color: '#22c55e', items: [
+      { name: 'Node.js',         pct: 75 },
+      { name: 'Python (Django)', pct: 65 },
+      { name: 'Ruby on Rails',   pct: 55 },
+      { name: 'REST API Design', pct: 85 },
+    ]},
+    { label: 'Mobile', color: '#f97316', items: [
+      { name: 'React Native', pct: 70 },
+      { name: 'Swift (iOS)',  pct: 55 },
+      { name: 'Kotlin',       pct: 55 },
+    ]},
+    { label: 'ML & Data', color: '#ef4444', items: [
+      { name: 'TensorFlow',    pct: 65 },
+      { name: 'Python',        pct: 72 },
+      { name: 'Data Analysis', pct: 60 },
+    ]},
+    { label: 'Practices', color: '#6366f1', items: [
+      { name: 'System Design', pct: 88 },
+      { name: 'Code Review',   pct: 92 },
+      { name: 'Team Leading',  pct: 85 },
+      { name: 'Agile / ATF',   pct: 80 },
+      { name: 'Communication', pct: 90 },
+    ]},
+  ];
+
   return (
-    <>
-      {/* 1 — MANIFESTO HERO */}
-      <Section
-        id="top"
-        spacing="xl"
-        className="bg-background pt-32 sm:pt-36 lg:pt-40"
-      >
-        <Container size="wide">
-          <ManifestoHero />
-        </Container>
-      </Section>
+    <div className={styles.layout}>
+      <Navbar />
 
-      {/* 2 — THREE VOICES */}
-      <Section id="voices" spacing="xl" className="bg-muted">
-        <Container size="wide" className="flex flex-col gap-16 lg:gap-20">
-          <SectionHeading
-            index="02"
-            totalSections={TOTAL_SECTIONS}
-            eyebrow={pageMeta.voices.eyebrow}
-            title={pageMeta.voices.heading}
-            description={pageMeta.voices.description}
-          />
-          <VoicesTranscript />
-        </Container>
-      </Section>
+      <main className={styles.main}>
+        <HeroSection />
 
-      {/* 3 — CASE EXCERPTS */}
-      <Section id="work" spacing="xl" className="bg-background">
-        <Container size="wide" className="flex flex-col gap-16 lg:gap-24">
-          <SectionHeading
-            index="03"
-            totalSections={TOTAL_SECTIONS}
-            eyebrow={pageMeta.work.eyebrow}
-            title={pageMeta.work.heading}
-            description={pageMeta.work.description}
-          />
-          <CaseExcerpts />
-        </Container>
-      </Section>
+        {/* ── About ───────────────────────────────────────── */}
+        <section id="about" className={styles.section}>
+          <div className={styles.sectionNum}>00</div>
+          <div className={styles.container}>
+            <div className={styles.sectionHeader}>
+              <span className={styles.sectionLabel}>About</span>
+              <h2 className={styles.sectionTitle}>Who I Am</h2>
+            </div>
+            <div className={styles.aboutGrid}>
+              <div className={styles.aboutText}>
+                <p>
+                  Based in Japan, I work across the full stack — React and TypeScript on the
+                  frontend, Node.js and Python on the backend, AWS on the infrastructure side.
+                  The core of my career has been frontend engineering at consumer scale, currently
+                  at PayPay Corporation, one of Japan&apos;s largest mobile payments platforms.
+                </p>
+                <p>
+                  Over 11+ years the scope has expanded well beyond a single layer. I&apos;ve
+                  shipped React applications, Python services, mobile features in React Native,
+                  Swift, and Kotlin, and AWS infrastructure for high-throughput consumer products.
+                  Team leading, code review, and system design are part of how I work, not separate
+                  from it.
+                </p>
+                <p>
+                  Currently completing an MSc in Data Science at the University of Edinburgh
+                  remotely, sharpening the analytical foundation behind the engineering work.
+                  AWS Certified Solutions Architect — Professional. TensorFlow Developer Certified.
+                  ICAgile Team Facilitation. The throughline is the same: shipping software that
+                  holds up at consumer scale.
+                </p>
+              </div>
+              <div className={styles.aboutCards}>
+                <InfoCard icon="🏢" label="Current"   value="PayPay Corporation"   sub="Senior Full-Stack Engineer" />
+                <InfoCard icon="📍" label="Location"  value="Tokyo, Japan"         sub="Remote-friendly" />
+                <InfoCard icon="🎓" label="Studying"  value="MSc Data Science"     sub="Edinburgh · In progress" />
+                <InfoCard icon="💻" label="Stack"     value="React · TS · AWS"     sub="Full-Stack" />
+              </div>
+            </div>
+          </div>
+        </section>
 
-      {/* 4 — HOW A PROJECT RUNS */}
-      <Section id="process" spacing="xl" className="bg-muted">
-        <Container size="wide" className="flex flex-col gap-16 lg:gap-20">
-          <SectionHeading
-            index="04"
-            totalSections={TOTAL_SECTIONS}
-            eyebrow={pageMeta.process.eyebrow}
-            title={pageMeta.process.heading}
-            description={pageMeta.process.description}
-          />
-          <ProcessPhases />
-        </Container>
-      </Section>
+        <ExperienceSection />
 
-      {/* 5 — PRINCIPLES */}
-      <Section id="principles" spacing="xl" className="bg-background">
-        <Container size="wide" className="flex flex-col gap-16 lg:gap-20">
-          <SectionHeading
-            index="05"
-            totalSections={TOTAL_SECTIONS}
-            eyebrow={pageMeta.principles.eyebrow}
-            title={pageMeta.principles.heading}
-            description={pageMeta.principles.description}
-          />
-          <PrinciplesList />
-        </Container>
-      </Section>
+        {/* ── Projects ────────────────────────────────────── */}
+        <section id="projects" className={styles.section}>
+          <div className={styles.sectionNum}>03</div>
+          <div className={styles.container}>
+            <div className={styles.sectionHeader}>
+              <span className={styles.sectionLabel}>Projects</span>
+              <h2 className={styles.sectionTitle}>What I Have Built</h2>
+            </div>
 
-      {/* 6 — ABOUT THE OPERATOR */}
-      <Section id="about" spacing="xl" className="bg-muted">
-        <Container size="wide" className="flex flex-col gap-14 lg:gap-16">
-          <SectionHeading
-            index="06"
-            totalSections={TOTAL_SECTIONS}
-            eyebrow={pageMeta.about.eyebrow}
-            title={pageMeta.about.heading}
-          />
-          <AboutOperator />
-        </Container>
-      </Section>
+            <div className={styles.projectsHead}>
+              <span className={styles.projectDot} style={{ background: '#f97316' }} />
+              Professional Projects
+            </div>
+            <div className={styles.bentoGrid}>
+              {professional.map((p) => (
+                <ProjectCard key={p.id} project={p} />
+              ))}
+            </div>
 
-      {/* 7 — FOR DEVELOPERS */}
-      <Section id="developers" spacing="xl" className="bg-background">
-        <Container size="default" className="flex flex-col gap-14 lg:gap-16">
-          <SectionHeading
-            index="07"
-            totalSections={TOTAL_SECTIONS}
-            eyebrow={pageMeta.developers.eyebrow}
-            title={pageMeta.developers.heading}
-            description={pageMeta.developers.description}
-          />
-          <ForDevelopers />
-        </Container>
-      </Section>
+            <div className={styles.projectsHead} style={{ marginTop: 48 }}>
+              <span className={styles.projectDot} style={{ background: '#6366f1' }} />
+              Personal Projects
+            </div>
+            <div className={styles.bentoGrid}>
+              {personal.map((p) => (
+                <ProjectCard key={p.id} project={p} />
+              ))}
+            </div>
+          </div>
+        </section>
 
-      {/* 8 — CONTACT */}
-      <Section id="contact" spacing="xl" className="bg-muted">
-        <Container size="wide" className="flex flex-col gap-14 lg:gap-16">
-          <SectionHeading
-            index="08"
-            totalSections={TOTAL_SECTIONS}
-            eyebrow={pageMeta.contact.eyebrow}
-            title={pageMeta.contact.heading}
-            description={pageMeta.contact.description}
-          />
-          <ContactDirect />
-        </Container>
-      </Section>
-    </>
+        {/* ── Skills ──────────────────────────────────────── */}
+        <section id="skills" className={styles.section}>
+          <div className={styles.sectionNum}>04</div>
+          <div className={styles.container}>
+            <div className={styles.sectionHeader}>
+              <span className={styles.sectionLabel}>Skills</span>
+              <h2 className={styles.sectionTitle}>Technical Stack</h2>
+            </div>
+            <div className={styles.skillsGrid}>
+              {skillEntries.map((g) => (
+                <div key={g.label} className={styles.skillGroup} style={{ ['--skill-color' as string]: g.color }}>
+                  <div className={styles.skillBg}>
+                    <SkillBackground label={g.label} color={g.color} />
+                  </div>
+                  <h4 className={styles.skillLabel} style={{ color: g.color }}>{g.label}</h4>
+                  <div className={styles.skillBars}>
+                    {g.items.map((item) => (
+                      <div key={item.name} className={styles.skillBar}>
+                        <div className={styles.skillBarMeta}>
+                          <span className={styles.skillBarName}>{item.name}</span>
+                          <span className={styles.skillBarPct} style={{ color: g.color }}>{item.pct}%</span>
+                        </div>
+                        <div className={styles.skillBarTrack}>
+                          <div
+                            className={styles.skillBarFill}
+                            style={{ width: `${item.pct}%`, background: g.color }}
+                          />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── Contact ─────────────────────────────────────── */}
+        <section id="contact" className={styles.section}>
+          <div className={styles.sectionNum}>05</div>
+          <div className={styles.container}>
+            <div className={styles.sectionHeader}>
+              <span className={styles.sectionLabel}>Contact</span>
+              <h2 className={styles.sectionTitle}>Get in Touch</h2>
+            </div>
+            <p className={styles.contactBio}>
+              Open to part-time or full-time remote contracts — React, TypeScript, AWS, or
+              full-stack product work. I work well async across time zones and communicate
+              clearly in English. Comfortable owning a feature end-to-end.
+            </p>
+            <div className={styles.contactGrid}>
+              <div className={styles.contactCard}>
+                <p className={styles.contactCardLabel}>Platform</p>
+                <p className={styles.contactCardValue}>LinkedIn</p>
+                <p className={styles.contactCardSub}>Primary channel · Connect &amp; message</p>
+              </div>
+              <div className={styles.contactCard}>
+                <p className={styles.contactCardLabel}>Platform</p>
+                <p className={styles.contactCardValue}>GitHub</p>
+                <p className={styles.contactCardSub}>Code &amp; open source</p>
+              </div>
+              <div className={styles.contactCard}>
+                <p className={styles.contactCardLabel}>Location</p>
+                <p className={styles.contactCardValue}>Tokyo</p>
+                <p className={styles.contactCardSub}>UTC+9 · Remote-friendly</p>
+              </div>
+              <div className={styles.contactCard}>
+                <p className={styles.contactCardLabel}>Response</p>
+                <p className={styles.contactCardValue}>24 hours</p>
+                <p className={styles.contactCardSub}>Usually same day</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <footer className={styles.footer}>
+          <span>Oscar Cheung · Tokyo, Japan · Senior Full-Stack Engineer</span>
+          <div className={styles.footerRight}>
+            <div className={styles.footerDot} />
+            <span>Available for remote contracts</span>
+          </div>
+        </footer>
+      </main>
+    </div>
+  );
+}
+
+function InfoCard({ icon, label, value, sub }: { icon: string; label: string; value: string; sub: string }) {
+  return (
+    <div className={styles.infoCard}>
+      <span className={styles.infoIcon}>{icon}</span>
+      <div>
+        <div className={styles.infoLabel}>{label}</div>
+        <div className={styles.infoValue}>{value}</div>
+        <div className={styles.infoSub}>{sub}</div>
+      </div>
+    </div>
   );
 }
