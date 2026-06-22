@@ -71,31 +71,34 @@ export default function Home() {
             <div className={styles.aboutGrid}>
               <div className={styles.aboutText}>
                 <p>
-                  Based in Japan, I work across the full stack — React and TypeScript on the
-                  frontend, Node.js and Python on the backend, AWS on the infrastructure side.
-                  The core of my career has been frontend engineering at consumer scale, currently
-                  at PayPay Corporation, one of Japan&apos;s largest mobile payments platforms.
+                  I build automation that gives individuals and businesses hours of their week
+                  back. Custom workflow tools, internal systems, and the quiet kind of software
+                  that takes the manual, repetitive work off your team — work that gets done
+                  while you sleep.
                 </p>
                 <p>
-                  Over 11+ years the scope has expanded well beyond a single layer. I&apos;ve
-                  shipped React applications, Python services, mobile features in React Native,
-                  Swift, and Kotlin, and AWS infrastructure for high-throughput consumer products.
-                  Team leading, code review, and system design are part of how I work, not separate
-                  from it.
+                  Most of my clients are individuals and small-to-mid-sized businesses whose
+                  tools have outgrown their workarounds. The pattern repeats: three people
+                  entering the same data into three different tools, weekly reports built by
+                  hand from spreadsheets, vendor SaaS charging tens of thousands a year for the
+                  20% of the feature set anyone actually uses. I ship the version that does only
+                  the work you need — fewer subscriptions, fewer manual steps, measurable time
+                  and money saved every month.
                 </p>
                 <p>
-                  Currently completing an MSc in Data Science at the University of Edinburgh
-                  remotely, sharpening the analytical foundation behind the engineering work.
-                  AWS Certified Solutions Architect — Professional. TensorFlow Developer Certified.
-                  ICAgile Team Facilitation. The throughline is the same: shipping software that
-                  holds up at consumer scale.
+                  All of this is backed by 11+ years of production engineering — currently at
+                  PayPay Corporation in Tokyo, one of Japan&apos;s largest mobile payments
+                  platforms. The discipline that keeps a fintech system reliable is the same
+                  discipline I bring to your operations: boring on purpose, documented, and
+                  paying back long after I&apos;m gone. AWS Solutions Architect — Professional.
+                  MSc Data Science at Edinburgh in progress.
                 </p>
               </div>
               <div className={styles.aboutCards}>
-                <InfoCard icon="🏢" label="Current"   value="PayPay Corporation"   sub="Senior Full-Stack Engineer" />
-                <InfoCard icon="📍" label="Location"  value="Tokyo, Japan"         sub="Remote-friendly" />
-                <InfoCard icon="🎓" label="Studying"  value="MSc Data Science"     sub="Edinburgh · In progress" />
-                <InfoCard icon="💻" label="Stack"     value="React · TS · AWS"     sub="Full-Stack" />
+                <InfoCard icon="💼" label="Focus"    value="Custom automation"    sub="Individuals &amp; SMBs" />
+                <InfoCard icon="⏱️" label="Saves"    value="Hours per week"       sub="Measurable ROI" />
+                <InfoCard icon="📍" label="Location" value="Tokyo, Japan"         sub="Remote-friendly" />
+                <InfoCard icon="🏢" label="Day job"  value="PayPay Corporation"   sub="Senior Full-Stack Engineer" />
               </div>
             </div>
           </div>
