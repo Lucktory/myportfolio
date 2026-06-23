@@ -1,6 +1,6 @@
 .hero {
   min-height: 100vh;
-  padding: 80px 64px 60px;
+  padding: clamp(64px, 8vw, 96px) clamp(20px, 5vw, 64px) clamp(40px, 5vw, 60px);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -66,12 +66,13 @@
 }
 
 .name {
-  font-size: clamp(72px, 10vw, 120px);
+  font-size: clamp(48px, 9vw, 120px);
   font-weight: 900;
   line-height: 0.9;
-  letter-spacing: -4px;
+  letter-spacing: clamp(-3px, -0.4vw, -4px);
   color: var(--text-primary);
   margin-bottom: 20px;
+  word-break: break-word;
 }
 
 .role {
@@ -153,8 +154,8 @@
 
 .photo {
   display: block;
-  width: 300px;
-  height: 360px;
+  width: clamp(180px, 22vw, 300px);
+  height: clamp(220px, 26vw, 360px);
   object-fit: cover;
   object-position: top;
   border-radius: 4px;
@@ -214,16 +215,32 @@
 }
 
 /* ── responsive ──────────────────────────────────────────────── */
-@media (max-width: 900px) {
-  .hero { padding: 80px 32px 48px; }
-  .inner { flex-direction: column; align-items: flex-start; gap: 40px; }
-  .photo { width: 220px; height: 260px; }
-  .name  { font-size: 80px; }
-  .number { font-size: 120px; }
+/* tablet + small desktop — stack hero, tighten layout */
+@media (max-width: 1023px) {
+  .inner   { flex-direction: column; align-items: flex-start; gap: 40px; margin-bottom: 48px; }
+  .number  { font-size: 140px; right: 24px; }
+  .text    { max-width: 100%; }
+  .bio     { max-width: 540px; }
 }
 
-@media (max-width: 768px) {
-  .hero { padding: 80px 20px 40px; min-height: auto; }
-  .statStrip { flex-wrap: wrap; gap: 20px; }
-  .stat { flex: 1 1 40%; border-right: none; margin-right: 0; padding-right: 0; }
+/* mobile — drop min-height, wrap stat strip */
+@media (max-width: 767px) {
+  .hero      { min-height: auto; padding-top: 96px; }
+  .number    { font-size: 100px; top: 12px; right: 16px; letter-spacing: -4px; }
+  .eyebrow   { font-size: 11px; gap: 8px; }
+  .role      { font-size: 14px; }
+  .bio       { font-size: 14px; line-height: 1.7; margin-bottom: 32px; }
+  .actions   { gap: 10px; flex-wrap: wrap; }
+  .btnPrimary, .btnGhost { font-size: 12px; padding: 11px 22px; }
+  .statStrip { flex-wrap: wrap; gap: 18px 24px; padding-top: 24px; }
+  .stat      { flex: 1 1 calc(50% - 12px); border-right: none; margin-right: 0; padding-right: 0; }
+  .statN     { font-size: 28px; }
+  .photoBlock { width: 100%; max-width: 320px; display: flex; flex-direction: column; align-items: center; }
+}
+
+/* small mobile — drop the giant number, tighten everything */
+@media (max-width: 480px) {
+  .number    { display: none; }
+  .actions   { width: 100%; }
+  .btnPrimary, .btnGhost { flex: 1; text-align: center; padding: 11px 14px; }
 }

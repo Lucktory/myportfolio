@@ -1,3 +1,7 @@
+import type { ReactNode } from 'react';
+import { Briefcase, Building2, Clock, Mail, MapPin } from 'lucide-react';
+import { FaGithub, FaLinkedinIn, FaWhatsapp } from 'react-icons/fa6';
+
 import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
 import ExperienceSection from '@/components/ExperienceSection';
@@ -6,50 +10,56 @@ import SkillBackground from '@/components/SkillBackground';
 import { projects, skills } from '@/data/projects';
 import styles from './page.module.css';
 
+const ICON_SIZE = 18;
+const ICON_STROKE = 1.75;
+
 export default function Home() {
   const professional = projects.filter((p) => p.type === 'professional');
   const personal     = projects.filter((p) => p.type === 'personal');
 
-  // proficiency reflects actual career evidence — proficient stack at top,
-  // intermediate / supporting stacks lower
+  // automation-engineer stack — primary tools at top, supporting infra below
   const skillEntries: { label: string; color: string; items: { name: string; pct: number }[] }[] = [
-    { label: 'Web Frontend', color: '#06b6d4', items: [
-      { name: 'React.js',   pct: 95 },
-      { name: 'TypeScript', pct: 92 },
-      { name: 'JavaScript', pct: 95 },
-      { name: 'Redux',      pct: 90 },
-      { name: 'Vue.js',     pct: 65 },
-      { name: 'Next.js',    pct: 72 },
+    { label: 'Custom Automation Backend', color: '#06b6d4', items: [
+      { name: 'Node.js',          pct: 92 },
+      { name: 'TypeScript',       pct: 92 },
+      { name: 'Python',           pct: 85 },
+      { name: 'REST APIs',        pct: 90 },
+      { name: 'Webhooks',         pct: 88 },
     ]},
-    { label: 'Cloud & Infrastructure', color: '#eab308', items: [
-      { name: 'AWS',            pct: 92 },
-      { name: 'Google Cloud',   pct: 65 },
-      { name: 'DevOps',         pct: 70 },
-      { name: 'Docker',         pct: 72 },
-      { name: 'GitHub Actions', pct: 78 },
+    { label: 'AI & LLM Integration', color: '#a855f7', items: [
+      { name: 'OpenAI API',       pct: 88 },
+      { name: 'Anthropic API',    pct: 85 },
+      { name: 'LangChain',        pct: 75 },
+      { name: 'Vector Embeddings', pct: 72 },
+      { name: 'Prompt Engineering', pct: 88 },
     ]},
-    { label: 'Backend', color: '#22c55e', items: [
-      { name: 'Node.js',         pct: 75 },
-      { name: 'Python (Django)', pct: 65 },
-      { name: 'Ruby on Rails',   pct: 55 },
-      { name: 'REST API Design', pct: 85 },
+    { label: 'Browser & Web Automation', color: '#f97316', items: [
+      { name: 'Playwright',       pct: 90 },
+      { name: 'Puppeteer',        pct: 82 },
+      { name: 'Selenium',         pct: 75 },
+      { name: 'BeautifulSoup',    pct: 85 },
+      { name: 'Anti-bot Handling', pct: 80 },
     ]},
-    { label: 'Mobile', color: '#f97316', items: [
-      { name: 'React Native', pct: 70 },
-      { name: 'Swift (iOS)',  pct: 55 },
-      { name: 'Kotlin',       pct: 55 },
+    { label: 'Cloud & Deployment', color: '#eab308', items: [
+      { name: 'AWS Lambda',       pct: 88 },
+      { name: 'AWS (S3, RDS)',    pct: 85 },
+      { name: 'Docker',           pct: 78 },
+      { name: 'GitHub Actions',   pct: 85 },
+      { name: 'Vercel / Railway', pct: 80 },
     ]},
-    { label: 'ML & Data', color: '#ef4444', items: [
-      { name: 'TensorFlow',    pct: 65 },
-      { name: 'Python',        pct: 72 },
-      { name: 'Data Analysis', pct: 60 },
+    { label: 'Data & Storage', color: '#22c55e', items: [
+      { name: 'PostgreSQL',       pct: 82 },
+      { name: 'Supabase',         pct: 78 },
+      { name: 'Airtable API',     pct: 75 },
+      { name: 'Redis',            pct: 70 },
+      { name: 'SQLite',           pct: 80 },
     ]},
-    { label: 'Practices', color: '#6366f1', items: [
-      { name: 'System Design', pct: 88 },
-      { name: 'Code Review',   pct: 92 },
-      { name: 'Team Leading',  pct: 85 },
-      { name: 'Agile / ATF',   pct: 80 },
-      { name: 'Communication', pct: 90 },
+    { label: 'Engineering Practice', color: '#6366f1', items: [
+      { name: 'System Design',    pct: 90 },
+      { name: 'Documentation',    pct: 92 },
+      { name: 'Code Review',      pct: 90 },
+      { name: 'Reliability',      pct: 88 },
+      { name: 'Async Comms',      pct: 90 },
     ]},
   ];
 
@@ -95,10 +105,30 @@ export default function Home() {
                 </p>
               </div>
               <div className={styles.aboutCards}>
-                <InfoCard icon="💼" label="Focus"    value="Custom automation"    sub="Individuals &amp; SMBs" />
-                <InfoCard icon="⏱️" label="Saves"    value="Hours per week"       sub="Measurable ROI" />
-                <InfoCard icon="📍" label="Location" value="Tokyo, Japan"         sub="Remote-friendly" />
-                <InfoCard icon="🏢" label="Day job"  value="PayPay Corporation"   sub="Senior Full-Stack Engineer" />
+                <InfoCard
+                  icon={<Briefcase size={ICON_SIZE} strokeWidth={ICON_STROKE} />}
+                  label="Focus"
+                  value="Custom automation"
+                  sub="Individuals & SMBs"
+                />
+                <InfoCard
+                  icon={<Clock size={ICON_SIZE} strokeWidth={ICON_STROKE} />}
+                  label="Saves"
+                  value="Hours per week"
+                  sub="Measurable ROI"
+                />
+                <InfoCard
+                  icon={<MapPin size={ICON_SIZE} strokeWidth={ICON_STROKE} />}
+                  label="Location"
+                  value="Tokyo, Japan"
+                  sub="Remote-friendly"
+                />
+                <InfoCard
+                  icon={<Building2 size={ICON_SIZE} strokeWidth={ICON_STROKE} />}
+                  label="Day job"
+                  value="PayPay Corporation"
+                  sub="Senior Full-Stack Engineer"
+                />
               </div>
             </div>
           </div>
@@ -183,31 +213,36 @@ export default function Home() {
               <h2 className={styles.sectionTitle}>Get in Touch</h2>
             </div>
             <p className={styles.contactBio}>
-              Open to part-time or full-time remote contracts — React, TypeScript, AWS, or
-              full-stack product work. I work well async across time zones and communicate
-              clearly in English. Comfortable owning a feature end-to-end.
+              Tell me what you&apos;re trying to automate. I usually reply within a day.
             </p>
-            <div className={styles.contactGrid}>
-              <div className={styles.contactCard}>
-                <p className={styles.contactCardLabel}>Platform</p>
-                <p className={styles.contactCardValue}>LinkedIn</p>
-                <p className={styles.contactCardSub}>Primary channel · Connect &amp; message</p>
-              </div>
-              <div className={styles.contactCard}>
-                <p className={styles.contactCardLabel}>Platform</p>
-                <p className={styles.contactCardValue}>GitHub</p>
-                <p className={styles.contactCardSub}>Code &amp; open source</p>
-              </div>
-              <div className={styles.contactCard}>
-                <p className={styles.contactCardLabel}>Location</p>
-                <p className={styles.contactCardValue}>Tokyo</p>
-                <p className={styles.contactCardSub}>UTC+9 · Remote-friendly</p>
-              </div>
-              <div className={styles.contactCard}>
-                <p className={styles.contactCardLabel}>Response</p>
-                <p className={styles.contactCardValue}>24 hours</p>
-                <p className={styles.contactCardSub}>Usually same day</p>
-              </div>
+            <div className={styles.contactRow}>
+              <ContactBtn
+                href="https://www.linkedin.com/in/oscarcheung"
+                label="LinkedIn"
+                handle="/in/oscarcheung"
+                icon={<FaLinkedinIn size={22} />}
+                external
+              />
+              <ContactBtn
+                href="https://github.com/Lucktory"
+                label="GitHub"
+                handle="@Lucktory"
+                icon={<FaGithub size={22} />}
+                external
+              />
+              <ContactBtn
+                href="mailto:hello@example.com"
+                label="Email"
+                handle="Coming soon"
+                icon={<Mail size={22} strokeWidth={1.75} />}
+              />
+              <ContactBtn
+                href="https://wa.me/000000000000"
+                label="WhatsApp"
+                handle="Coming soon"
+                icon={<FaWhatsapp size={22} />}
+                external
+              />
             </div>
           </div>
         </section>
@@ -224,7 +259,7 @@ export default function Home() {
   );
 }
 
-function InfoCard({ icon, label, value, sub }: { icon: string; label: string; value: string; sub: string }) {
+function InfoCard({ icon, label, value, sub }: { icon: ReactNode; label: string; value: string; sub: string }) {
   return (
     <div className={styles.infoCard}>
       <span className={styles.infoIcon}>{icon}</span>
@@ -234,5 +269,32 @@ function InfoCard({ icon, label, value, sub }: { icon: string; label: string; va
         <div className={styles.infoSub}>{sub}</div>
       </div>
     </div>
+  );
+}
+
+function ContactBtn({
+  href,
+  label,
+  handle,
+  icon,
+  external,
+}: {
+  href: string;
+  label: string;
+  handle: string;
+  icon: ReactNode;
+  external?: boolean;
+}) {
+  return (
+    <a
+      href={href}
+      aria-label={label}
+      className={styles.contactBtn}
+      {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+    >
+      <span className={styles.contactBtnIcon}>{icon}</span>
+      <span className={styles.contactBtnLabel}>{label}</span>
+      <span className={styles.contactBtnHandle}>{handle}</span>
+    </a>
   );
 }

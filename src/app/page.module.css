@@ -12,7 +12,7 @@
 
 /* ── section shell ───────────────────────────────────────────── */
 .section {
-  padding: 96px 64px;
+  padding: clamp(64px, 7vw, 96px) clamp(20px, 5vw, 64px);
   border-top: 1px solid var(--border);
   position: relative;
   overflow: hidden;
@@ -22,7 +22,7 @@
   position: absolute;
   top: 16px;
   right: 40px;
-  font-size: 140px;
+  font-size: clamp(80px, 11vw, 140px);
   font-weight: 900;
   color: rgba(249, 115, 22, 0.04);
   line-height: 1;
@@ -31,7 +31,7 @@
   letter-spacing: -6px;
 }
 
-.container { max-width: 900px; }
+.container { max-width: 900px; margin: 0 auto; }
 
 /* section header */
 .sectionHeader { margin-bottom: 52px; }
@@ -56,8 +56,8 @@
 /* ── about ───────────────────────────────────────────────────── */
 .aboutGrid {
   display: grid;
-  grid-template-columns: 1fr 260px;
-  gap: 56px;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  gap: clamp(32px, 4vw, 56px);
   align-items: start;
 }
 
@@ -89,7 +89,16 @@
 
 .infoCard:hover { border-color: var(--accent); }
 
-.infoIcon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+.infoIcon {
+  flex-shrink: 0;
+  margin-top: 2px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  width: 22px;
+  height: 22px;
+}
 
 .infoLabel {
   font-size: 10px;
@@ -233,50 +242,73 @@
 }
 
 /* ── contact ─────────────────────────────────────────────────── */
-.contactGrid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2px;
+.contactBio {
+  color: var(--text-secondary);
+  font-size: 16px;
+  line-height: 1.85;
+  margin-bottom: 32px;
+  max-width: 560px;
 }
 
-.contactCard {
-  padding: 36px;
+.contactRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.contactBtn {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 140px;
+  padding: 22px 18px 18px;
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   background: var(--card);
-  transition: border-color 0.2s;
-}
-
-.contactCard:hover { border-color: var(--accent); }
-
-.contactCardLabel {
-  font-size: 10px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: var(--accent);
-  margin-bottom: 10px;
-}
-
-.contactCardValue {
-  font-size: 18px;
-  font-weight: 800;
   color: var(--text-primary);
-  letter-spacing: -0.3px;
+  text-decoration: none;
+  transition: border-color 0.18s ease, color 0.18s ease, background 0.18s ease, transform 0.18s ease;
 }
 
-.contactCardSub {
-  font-size: 12px;
+.contactBtn:hover {
+  border-color: var(--accent);
+  background: var(--card-hover);
+  color: var(--accent);
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+
+.contactBtnIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--accent-dim);
+  color: var(--accent);
+  margin-bottom: 4px;
+  transition: background 0.18s ease, color 0.18s ease;
+}
+
+.contactBtn:hover .contactBtnIcon {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+.contactBtnLabel {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+.contactBtnHandle {
+  font-family: var(--font-mono);
+  font-size: 11px;
   color: var(--text-muted);
-  margin-top: 4px;
-}
-
-.contactBio {
-  color: var(--text-secondary);
-  font-size: 15px;
-  line-height: 1.85;
-  margin-bottom: 40px;
-  max-width: 600px;
 }
 
 /* ── footer ──────────────────────────────────────────────────── */
@@ -306,14 +338,54 @@
 }
 
 /* ── responsive ──────────────────────────────────────────────── */
-@media (max-width: 768px) {
-  .main    { margin-left: 0; padding-top: 56px; }
-  .section { padding: 64px 20px; }
+
+/* large desktop (1441+) — content stays at 900px container, breathing room */
+@media (min-width: 1441px) {
+  .main { max-width: calc(100vw - 200px); }
+}
+
+/* small desktop / large tablet (1024–1280px) — narrower main, denser layout */
+@media (max-width: 1280px) and (min-width: 1024px) {
+  .aboutGrid { grid-template-columns: minmax(0, 1fr) 240px; }
+  .sectionHeader { margin-bottom: 44px; }
+}
+
+/* tablet (768–1023px) — narrow rail, stack about, single-col project grid */
+@media (max-width: 1023px) and (min-width: 768px) {
+  .main { margin-left: 168px; }
+  .aboutGrid { grid-template-columns: 1fr; gap: 36px; }
+  .aboutCards { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .bentoGrid { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .bentoGrid > :first-child { grid-column: 1 / -1; }
+  .skillsGrid { grid-template-columns: 1fr 1fr; }
+  .sectionHeader { margin-bottom: 40px; }
+  .footer { padding: 28px clamp(20px, 4vw, 64px); }
+}
+
+/* mobile (≤767px) — top bar, single column everywhere */
+@media (max-width: 767px) {
+  .main       { margin-left: 0; padding-top: 56px; }
   .sectionNum { display: none; }
   .aboutGrid  { grid-template-columns: 1fr; gap: 32px; }
-  .bentoGrid  { grid-template-columns: 1fr; }
+  .aboutCards { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .bentoGrid  { grid-template-columns: 1fr; gap: 12px; }
   .bentoGrid > :first-child { grid-column: auto; }
   .skillsGrid { grid-template-columns: 1fr; }
-  .contactGrid{ grid-template-columns: 1fr; }
-  .footer     { padding: 24px 20px; flex-direction: column; gap: 8px; text-align: center; }
+  .sectionHeader { margin-bottom: 36px; }
+  .skillGroup { padding: 22px 24px; }
+  .skillBg { width: 130px; height: 130px; }
+  .infoCard { padding: 12px 14px; gap: 12px; }
+  .infoValue { font-size: 13px; }
+  .contactBtn { min-width: 120px; padding: 18px 14px 14px; }
+  .footer { padding: 24px 20px; flex-direction: column; gap: 8px; text-align: center; }
+}
+
+/* small mobile (≤480px) — tighten everything, stack cards single column */
+@media (max-width: 480px) {
+  .aboutCards { grid-template-columns: 1fr; }
+  .contactBtn { min-width: calc(50% - 7px); flex: 1 1 calc(50% - 7px); padding: 16px 12px 12px; }
+  .contactBtnIcon { width: 34px; height: 34px; }
+  .contactBtnLabel { font-size: 12px; }
+  .contactBtnHandle { font-size: 10px; }
+  .sectionLabel { letter-spacing: 2px; font-size: 10px; }
 }

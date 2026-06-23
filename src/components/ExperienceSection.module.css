@@ -1,18 +1,18 @@
 .section {
-  padding: 96px 64px;
+  padding: clamp(64px, 7vw, 96px) clamp(20px, 5vw, 64px);
   border-top: 1px solid var(--border);
   position: relative;
   overflow: hidden;
 }
 
-.container { max-width: 900px; }
+.container { max-width: 900px; margin: 0 auto; }
 
 /* large section number */
 .sectionNum {
   position: absolute;
   top: 16px;
   right: 40px;
-  font-size: 140px;
+  font-size: clamp(80px, 11vw, 140px);
   font-weight: 900;
   color: rgba(249, 115, 22, 0.04);
   line-height: 1;
@@ -170,7 +170,12 @@
   gap: 6px;
 }
 
-.eduIcon { font-size: 28px; margin-bottom: 8px; }
+.eduIcon {
+  margin-bottom: 12px;
+  color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+}
 
 .eduSchool {
   font-size: 14px;
@@ -201,9 +206,25 @@
 }
 
 /* ── responsive ──────────────────────────────────────────────── */
-@media (max-width: 768px) {
-  .section { padding: 72px 20px; }
+/* tablet — narrow the left column */
+@media (max-width: 1023px) {
+  .expCard, .eduCard { grid-template-columns: 180px 1fr; }
+  .expLeft, .eduLeft { padding: 24px 18px; }
+  .expRight, .eduRight { padding: 24px 24px; }
+}
+
+/* mobile — stack the two columns vertically */
+@media (max-width: 767px) {
+  .sectionHeader { margin-bottom: 36px; }
   .expCard, .eduCard { grid-template-columns: 1fr; }
   .expLeft, .eduLeft { border-right: none; border-bottom: 1px solid var(--border); }
   .sectionNum { display: none; }
+  .expCompany, .eduSchool { font-size: 14px; }
+}
+
+/* small mobile — tighten padding */
+@media (max-width: 480px) {
+  .expLeft, .eduLeft { padding: 22px 16px; }
+  .expRight, .eduRight { padding: 22px 18px; }
+  .expHighlight, .expDesc { font-size: 12.5px; }
 }

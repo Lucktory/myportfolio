@@ -79,14 +79,14 @@ export const projects: Project[] = [
 ];
 
 /**
- * Oscar's stack — canonical list. The Skills section composes its own
- * `skillEntries` inline in app/page.tsx; this object stays in sync.
+ * Oscar's automation stack — canonical list. The Skills section composes
+ * its own `skillEntries` inline in app/page.tsx; this object stays in sync.
  */
 export const skills = {
-  frontend:       ['React.js', 'Redux', 'TypeScript', 'JavaScript', 'Vue.js', 'Next.js'],
-  backend:        ['Node.js', 'Python (Django)', 'Ruby on Rails', 'REST API Design'],
-  cloud:          ['AWS', 'Google Cloud', 'Docker', 'GitHub Actions', 'DevOps'],
-  mobile:         ['React Native', 'Swift (iOS)', 'Kotlin (Android)'],
-  data:           ['TensorFlow', 'Python', 'Data Analysis'],
-  practices:      ['System Design', 'Code Review', 'Team Leading', 'Agile Team Facilitation', 'Communication'],
+  automationBackend: ['Node.js', 'TypeScript', 'Python', 'REST APIs', 'Webhooks'],
+  aiLlm:             ['OpenAI API', 'Anthropic API', 'LangChain', 'Vector Embeddings', 'Prompt Engineering'],
+  webAutomation:     ['Playwright', 'Puppeteer', 'Selenium', 'BeautifulSoup', 'Anti-bot Handling'],
+  cloud:             ['AWS Lambda', 'AWS (S3, RDS)', 'Docker', 'GitHub Actions', 'Vercel', 'Railway'],
+  data:              ['PostgreSQL', 'Supabase', 'Airtable API', 'Redis', 'SQLite'],
+  practice:          ['System Design', 'Documentation', 'Code Review', 'Reliability', 'Async Communication'],
 };

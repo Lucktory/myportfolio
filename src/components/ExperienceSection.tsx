@@ -1,3 +1,5 @@
+import { GraduationCap } from 'lucide-react';
+
 import styles from './ExperienceSection.module.css';
 
 const experience = [
@@ -93,7 +95,9 @@ export default function ExperienceSection() {
           {education.map((edu, i) => (
             <div key={i} className={styles.eduCard}>
               <div className={styles.eduLeft}>
-                <div className={styles.eduIcon}>🎓</div>
+                <div className={styles.eduIcon}>
+                  <GraduationCap size={26} strokeWidth={1.75} />
+                </div>
                 <p className={styles.eduSchool}>{edu.school}</p>
                 <p className={styles.eduLocation}>{edu.schoolJp}</p>
                 <p className={styles.eduLocation}>{edu.location}</p>
